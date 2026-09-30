@@ -179,7 +179,8 @@ h3 { font-size: 20px; font-weight: 650; letter-spacing: -0.018em; line-height: 1
   70%, 100% { box-shadow: 0 0 0 9px rgba(143, 209, 79, 0); }
 }
 @media (prefers-reduced-motion: reduce) { .soon::before { animation: none; } }
-.hero .soon, .get .soon { margin-bottom: 22px; }
+.hero .soon { margin-bottom: 22px; }
+.soon.lg { justify-content: center; min-height: 48px; padding: 0 24px 0 20px; font-size: 16px; }
 
 /* ---------- Surfaces ---------- */
 .card {
@@ -487,7 +488,7 @@ footer .nav-links { margin: 0; flex-wrap: wrap; gap: 14px 24px; }
   .tile { padding: 24px 22px 0; }
   .tile.text-only, .plat .tile.list { padding-bottom: 24px; }
   .get { padding: 56px 22px; }
-  .hero-ctas .btn, .get-ctas .btn { flex: 1 1 100%; }
+  .hero-ctas .btn, .get-ctas .btn, .get-ctas .soon { flex: 1 1 100%; }
   .plat .tile.wrist .ui { height: auto; flex-direction: column; }
   .tile .ui, .tile.w3 .ui { height: 280px; }
   .plat .tile.home .ui { height: 340px; }
