@@ -1,0 +1,127 @@
+/* ============================================================================
+   Spline — device frames.
+
+   iPhone: real iPhone 17 Pro geometry, not eyeballed — display 402 x 874 pt,
+   display corner radius ≈55 pt. Everything is those numbers times --sc, so the
+   frame stays correct at any size. The screenshots already contain the real
+   status bar, Dynamic Island area and tab bar, so the frame draws none of them.
+
+   Apple Watch: Series 11 46 mm screen (416 x 496 px capture), case drawn around it.
+   ========================================================================== */
+
+.device {
+  --pw: 402;
+  --ph: 874;
+  --sc: 0.78;
+  width: calc(var(--pw) * var(--sc) * 1px + 22 * var(--sc) * 1px);
+  position: relative;
+  z-index: 1;
+  flex: none;
+}
+.device-frame {
+  position: relative;
+  padding: calc(11 * var(--sc) * 1px);
+  border-radius: calc(66 * var(--sc) * 1px);
+  background: linear-gradient(150deg, #3a4038, #141814 40%, #0a0d0a);
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.14);
+}
+.device-screen {
+  position: relative;
+  aspect-ratio: var(--pw) / var(--ph);
+  border-radius: calc(55 * var(--sc) * 1px);
+  overflow: hidden;
+  background: #070a08;
+}
+.device-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+.device-glow {
+  position: absolute; inset: -6% -10%;
+  background: radial-gradient(45% 45% at 55% 32%, rgba(168, 229, 92, 0.16), transparent 70%);
+  filter: blur(30px); pointer-events: none; z-index: 0;
+}
+
+/* ---------- Apple Watch ---------- */
+.watch {
+  --w: 150px;
+  width: var(--w);
+  position: relative;
+  flex: none;
+}
+.watch-case {
+  position: relative;
+  padding: calc(var(--w) * 0.075);
+  border-radius: calc(var(--w) * 0.27);
+  background: linear-gradient(155deg, #4a514a, #1a1e1a 38%, #0b0e0b 70%, #262b26);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.09),
+    inset 0 1px 1px rgba(255, 255, 255, 0.18);
+}
+.watch-case::before,
+.watch-case::after {
+  content: ""; position: absolute; right: calc(var(--w) * -0.035);
+  width: calc(var(--w) * 0.045); border-radius: 3px;
+  background: linear-gradient(90deg, #202420, #555c55);
+}
+.watch-case::before { top: 26%; height: calc(var(--w) * 0.2); }   /* Digital Crown */
+.watch-case::after  { top: 56%; height: calc(var(--w) * 0.14); }  /* side button */
+.watch-screen {
+  aspect-ratio: 416 / 496;
+  border-radius: calc(var(--w) * 0.2);
+  overflow: hidden;
+  background: #000;
+}
+.watch-screen img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Hero composite: phone + watch + widget ---------- */
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); gap: 40px; align-items: center; }
+.hero-visual {
+  position: relative;
+  display: flex; justify-content: center;
+  padding: 10px 0 20px;
+}
+.hero-visual .device { --sc: 0.78; }
+.hero-visual .float-widget {
+  position: absolute; z-index: 3;
+  left: max(0px, calc(50% - 300px)); top: 17%;
+  width: 262px;
+  border-radius: 20px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.hero-visual .watch {
+  position: absolute; z-index: 3;
+  right: max(0px, calc(50% - 290px)); bottom: 7%;
+  --w: 156px;
+}
+.float-label {
+  position: absolute; z-index: 4;
+  font-size: 11.5px; font-weight: 650; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-faint); white-space: nowrap;
+}
+.float-label.widget { left: max(4px, calc(50% - 296px)); top: calc(17% - 26px); }
+.float-label.wrist { right: max(4px, calc(50% - 280px)); bottom: calc(7% - 26px); }
+
+@media (max-width: 1080px) {
+  .hero-visual .float-widget { width: 220px; left: 0; }
+  .float-label.widget { left: 4px; }
+  .hero-visual .watch { --w: 132px; right: 0; }
+  .float-label.wrist { right: 4px; }
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hero-visual .device { --sc: 0.7; }
+  .hero-visual .float-widget { left: calc(50% - 250px); }
+  .float-label.widget { left: calc(50% - 246px); }
+  .hero-visual .watch { right: calc(50% - 250px); }
+  .float-label.wrist { right: calc(50% - 236px); }
+}
+@media (max-width: 560px) {
+  .hero-visual { padding-bottom: 0; }
+  .hero-visual .device { --sc: 0.62; }
+  .hero-visual .float-widget { width: 168px; left: 0; top: 12%; border-radius: 14px; }
+  .float-label { display: none; }
+  .hero-visual .watch { --w: 108px; right: 0; bottom: 4%; }
+}
