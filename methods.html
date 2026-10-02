@@ -8,8 +8,9 @@
 <meta property="og:title" content="Spline &mdash; Methods">
 <meta property="og:description" content="How every score is built, and the PubMed evidence behind it. No black boxes.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://cyberius-maximus.github.io/Spline/methods.html">
-<meta property="og:image" content="https://cyberius-maximus.github.io/Spline/assets/og.jpg">
+<meta property="og:url" content="https://www.spline-health.com/methods.html">
+<meta property="og:image" content="https://www.spline-health.com/assets/og.jpg">
+<link rel="canonical" href="https://www.spline-health.com/methods.html">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta property="og:image:alt" content="Spline: The true line through the noise. One clear call each morning, with its science cited.">
@@ -54,7 +55,8 @@
       <li><a href="#signals">Everyday signals</a></li>
       <li><a href="#longevity">Body, longevity &amp; bloodwork</a></li>
       <li><a href="#heart">Heart &amp; blood pressure</a></li>
-      <li><a href="#food">Food</a></li>
+      <li><a href="#food">Food &amp; gut</a></li>
+      <li><a href="#year">Your year</a></li>
       <li><a href="#ask">Ask Spline</a></li>
     </ul>
   </header>
@@ -74,7 +76,7 @@
   <div class="method">
     <h3>Today&rsquo;s call (HRV gate)</h3>
     <p class="what">Turns your recovery into a concrete training decision: proceed, ease, swap to easy, or rest.</p>
-    <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">HRV against your personal band is the primary signal. Form (TSB) and the illness panel can only downgrade a hard day toward rest; they never upgrade it. Easy days are never gated. With no HRV this morning, or no personal band yet, the call is <em>unknown</em> and the app says nothing rather than guess, unless an illness signal or very low form is real evidence on its own.</div></div>
+    <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">HRV against your personal band is the primary signal. Form (TSB) and the illness early warning can only downgrade a hard day toward rest; they never upgrade it. Easy days are never gated. With no HRV this morning, or no personal band yet, the call is <em>unknown</em> and the app says nothing rather than guess, unless an illness signal or very low form is real evidence on its own.</div></div>
     <div class="row"><div class="k">Range</div><div class="v">Only hard days are gated; the underlying HRV, TSB and illness numbers are always shown.</div></div>
     <div class="cite">HRV-guided training: Vesterinen 2016 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/26909534/">PMID 26909534</a>; Javaloyes 2019 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/29809080/">PMID 29809080</a>. Personal bands on ln(RMSSD): Plews 2012 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/22367011/">PMID 22367011</a>.</div>
   </div>
@@ -157,6 +159,16 @@
   </div>
 
   <div class="method">
+    <h3>Illness early warning</h3>
+    <p class="what">A multi-night watch on five overnight vitals, for the days before you feel ill. It names what it saw and never diagnoses.</p>
+    <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Each night, resting heart rate, HRV, respiratory rate, wrist temperature and blood oxygen are compared with your own baseline: the 35 nights ending three nights earlier, so the two most recent nights can&rsquo;t pull an illness that is already building into your normal. The centre is the median and the spread a robust 1.4826&nbsp;&times;&nbsp;MAD, floored per vital so a very steady person&rsquo;s tiny spread can&rsquo;t turn a trivial change into an alarm. HRV is compared on a log scale. A vital counts as outside when it sits at least two spreads from the centre in the illness direction <em>and</em> past a change that matters physiologically (3&nbsp;bpm, a 15% HRV drop, 1 breath a minute, 0.3&nbsp;&deg;C, 2 points of SpO&#8322;); &ldquo;strong&rdquo; means three spreads and 1.5 times that change.</div></div>
+    <div class="row"><div class="k">Rules</div><div class="v"><b>Early signs of strain</b>: two or more vitals outside on one night, the same vital outside two nights running, or wrist temperature strongly raised. <b>Your body may be fighting something</b>: three or more outside on one night, two or more on two nights running, or early signs three nights running. A single odd reading never raises it.</div></div>
+    <div class="row"><div class="k">Known explanations</div><div class="v">The same alerts also fire for alcohol, stress and travel, so known causes are named and discounted rather than hidden. After a big training day, resting heart rate and HRV don&rsquo;t count that night; after drinks the evening before, heart rate, temperature and HRV don&rsquo;t; in the luteal or ovulatory phase, only a strong rise in temperature or heart rate counts.</div></div>
+    <div class="row"><div class="k">Range</div><div class="v">Learning your normal &middot; No signs of illness &middot; Early signs of strain &middot; Your body may be fighting something &middot; Settling back to normal. An early warning, not a diagnosis.</div></div>
+    <div class="cite">Pre-symptomatic resting heart rate: Mishra 2020 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/33208926/">PMID 33208926</a>; real-time alerting, a median of 3 days before symptoms: Alavi 2021 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/34845389/">PMID 34845389</a>; influenza and the common cold: Grzesiak 2021 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/34586364/">PMID 34586364</a>; respiratory rate: Miller 2020 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/33301493/">PMID 33301493</a>; wrist temperature: Smarr 2020 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/33318528/">PMID 33318528</a>; Apple Watch HRV: Hirten 2021 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/33529156/">PMID 33529156</a>; five signals moving together: COVI-GAPP, Risch 2022 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/35728900/">PMID 35728900</a>.</div>
+  </div>
+
+  <div class="method">
     <h3>Check-ins</h3>
     <p class="what">A single, specific question when a signal persists, so the app learns context it can&rsquo;t measure.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Asked only when a signal has persisted for three or more consecutive days, never after a one-day spike. Your answer becomes a journal tag on that day, which the pattern engine can later test. One question at a time, strongest first; answering or dismissing hides it for 14 days. It all happens on your iPhone.</div></div>
@@ -235,7 +247,7 @@
     <div class="cite">Confirmation required: ESC 2024 AF guideline, <a href="https://pubmed.ncbi.nlm.nih.gov/39210723/">PMID 39210723</a>; asymptomatic-screening evidence insufficient: USPSTF 2022, <a href="https://pubmed.ncbi.nlm.nih.gov/35076659/">PMID 35076659</a>.</div>
   </div>
 
-  <h2 id="food">Food</h2>
+  <h2 id="food">Food &amp; gut</h2>
 
   <div class="method">
     <h3>Food log numbers</h3>
@@ -245,6 +257,25 @@
     <div class="cite">BLS 4.0 (Max Rubner-Institut, CC BY 4.0); Table CIQUAL 2025 (ANSES, Etalab Open Licence 2.0); Frida 5.5 (DTU National Food Institute, CC BY 4.0); FNDDS 2021&ndash;2023 (USDA Agricultural Research Service, public domain); Open Food Facts.</div>
   </div>
 
+  <div class="method">
+    <h3>Gut health</h3>
+    <p class="what">Only what can be measured from what you already log, with every lever graded honestly. The microbiome is where wellness marketing is loudest and the evidence thinnest.</p>
+    <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Fiber: grams a day from your food log, against at least 30&nbsp;g, the German Nutrition Society&rsquo;s adult target. Plants: each different vegetable, fruit, legume, whole grain, nut, seed, herb or spice counts once a week however often you eat it, recognised in English and German food names. Fermented foods: the days this week with yoghurt, kefir, sauerkraut, kimchi, kombucha and the like. Movement: your recorded training minutes. An optional daily check-in records stool form on the Bristol scale and bloating.</div></div>
+    <div class="row"><div class="k">Range</div><div class="v">At least 30&nbsp;g of fiber a day &middot; 30 different plants a week &middot; fermented foods on 5 or more days &middot; 150 minutes of training a week. Bristol types 3&ndash;4 are the normal-transit range. Fiber is graded strong; the other levers are graded emerging.</div></div>
+    <div class="row"><div class="k">Deliberately left out</div><div class="v">A microbiome score. There is no validated one, and inventing a composite is exactly what Spline refuses to do. Every number shown is a count of something you logged.</div></div>
+    <div class="cite">Fiber and disease risk: Reynolds 2019 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/30638909/">PMID 30638909</a>; 30 plants a week (observational, self-selected): McDonald 2018 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/29795809/">PMID 29795809</a>; fermented foods (small randomised trial): Wastyk 2021 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/34256014/">PMID 34256014</a>; endurance training and gut short-chain fatty acids: Allen 2018 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/29166320/">PMID 29166320</a>; an emulsifier and microbiome diversity: Chassaing 2022 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/34774538/">PMID 34774538</a>; stool form tracks transit time: Lewis &amp; Heaton 1997 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/9299672/">PMID 9299672</a>.</div>
+  </div>
+
+  <h2 id="year">Your year</h2>
+
+  <div class="method">
+    <h3>Year in review</h3>
+    <p class="what">Your year, read back from what your devices recorded: totals, every day at a glance, personal bests, achievements and a signature. Free.</p>
+    <div class="row"><div class="k">When</div><div class="v">In December it reads the year so far; the rest of the year, it reads the last complete one. It needs at least 30 days with anything measured (a run, a night, a morning HRV). Below that, a year in review would only be a week in review, so it isn&rsquo;t offered.</div></div>
+    <div class="row"><div class="k">Achievements</div><div class="v">Each is a published ladder over your own year, Bronze, Silver and Gold, dated the day you crossed it, with the next rung shown as progress. Sessions 50/100/200; hours trained 100/200/350; distance 500/1,000/2,500&nbsp;km; weeks active 26/40/50; 10k-step days 100/200/300; strength PRs 3/10/25; training streak 7/14/30 days in a row; one session of 2/3/5&nbsp;h; 7-hour nights 100/200/300; Prime mornings 50/100/200; perfect days 30/100/200; HRV +5/+10/+15% on last year; 3/4/5 disciplines with 10&nbsp;h or more each. Nothing is awarded for opening the app, and nothing compares you with other people.</div></div>
+    <div class="row"><div class="k">Signature</div><div class="v">A rule over your year, never a label pulled from a hat. Metronome: trained in 75% or more of the year&rsquo;s weeks. Powerhouse: 4&nbsp;h or more of training a week on average. Well rested: 70% or more of tracked nights at 7&nbsp;h or more. Steady heart: 60% or more of scored mornings Prime. On the rise: HRV up 5%, resting heart rate down 2&nbsp;bpm or VO&#8322;max up 1.5 on last year. All-rounder: three disciplines each 15% or more of training time. The highest score wins; below every threshold there is no signature, and the card always prints the measurement that earned it.</div></div>
+  </div>
+
   <h2 id="ask">Ask Spline</h2>
 
   <div class="method">
@@ -252,6 +283,7 @@
     <p class="what">Why the coach can&rsquo;t make up a number.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Your question is routed to a topic (readiness, sleep, training, HRV, a data lookup and so on), first by whole-word keywords in English and German, and only if that finds nothing, by Apple&rsquo;s on-device model. The model may choose a topic; it never writes the answer. The app then composes the answer from the same values your cards show and the engines&rsquo; own verdicts (the gate, tonight&rsquo;s plan, the strain target), so the coach and the cards cannot disagree. Missing data is stated as missing. A data question such as &ldquo;when was my HRV lowest last month?&rdquo; becomes a query over the same data the charts draw, and the interpreted query is shown above the answer so a misread question is visible.</div></div>
     <div class="row"><div class="k">Suggestions</div><div class="v">Levers are drawn from a fixed, cited list and phrased as things to try one at a time, not prescriptions.</div></div>
+    <div class="row"><div class="k">Splino</div><div class="v">The little figure beside the answers is decoration: modelled and animated in Blender, hidden from VoiceOver, and it never changes what an answer says.</div></div>
     <div class="cite">Training raises vagal HRV: Sandercock 2005 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/15741842/">PMID 15741842</a>; slow breathing: Laborde 2022 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/35623448/">PMID 35623448</a>; alcohol: Pieti&auml;l&auml; 2018 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/29549064/">PMID 29549064</a>; resting heart rate: Reimers 2018 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/30513777/">PMID 30513777</a>; 4&times;4 intervals and VO&#8322;max: Helgerud 2007 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/17414804/">PMID 17414804</a>; intensity distribution: Seiler 2010 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/20861519/">PMID 20861519</a>; training monotony and strain: Foster 1998 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/9662690/">PMID 9662690</a>.</div>
   </div>
 

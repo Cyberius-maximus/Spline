@@ -1,8 +1,9 @@
 /* ============================================================================
    Spline — site behaviour.
-   Three small things: reveal-on-scroll, the scroll-linked spline spine, and a
-   hairline under the nav once the page has scrolled. All of it no-ops cleanly
-   when the visitor prefers reduced motion or the browser lacks the APIs.
+   A few small things: reveal-on-scroll, the scroll-linked spline spine, a
+   hairline under the nav once the page has scrolled, the hero render's fade-in
+   and drift, and the looping year reel. All of it no-ops cleanly when the
+   visitor prefers reduced motion or the browser lacks the APIs.
    ========================================================================== */
 (function () {
   "use strict";
@@ -32,6 +33,40 @@
   var nav = document.getElementById("nav") || document.querySelector("nav");
   function navState() {
     if (nav) nav.classList.toggle("scrolled", window.scrollY > 8);
+  }
+
+  /* ---------------- Hero render ----------------
+     Fade the Blender render in once it has arrived (a cached one just shows), and let it
+     drift a little slower than the page while the hero is on screen. */
+  var hero3d = document.querySelector(".hero-3d");
+  var hero3dImg = hero3d && hero3d.querySelector("img");
+  var hero3dLayer = hero3d && hero3d.querySelector(".hero-3d-fade");
+  if (hero3dImg && !reduced && !hero3dImg.complete) {
+    hero3d.classList.add("wait");
+    var show3d = function () { hero3d.classList.remove("wait"); };
+    hero3dImg.addEventListener("load", show3d, { once: true });
+    hero3dImg.addEventListener("error", show3d, { once: true });
+  }
+  function drift() {
+    if (reduced || !hero3dLayer) return;
+    var y = window.scrollY;
+    if (y > hero3d.offsetHeight) return;
+    hero3dLayer.style.transform = "translate3d(0," + (y * 0.22).toFixed(1) + "px,0)";
+  }
+
+  /* ---------------- Year reel ----------------
+     Clone the slides once (decorative copies, hidden from assistive tech) so the CSS
+     marquee can run -50% and land exactly where it started. */
+  var reel = document.querySelector(".reel");
+  var track = reel && reel.querySelector(".reel-track");
+  if (track && !reduced) {
+    Array.prototype.slice.call(track.children).forEach(function (img) {
+      var copy = img.cloneNode(true);
+      copy.alt = "";
+      copy.setAttribute("aria-hidden", "true");
+      track.appendChild(copy);
+    });
+    reel.classList.add("is-looping");
   }
 
   /* ---------------- The spline spine ----------------
@@ -112,6 +147,7 @@
     window.requestAnimationFrame(function () {
       draw();
       navState();
+      drift();
       ticking = false;
     });
   }

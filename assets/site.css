@@ -208,6 +208,28 @@ h3 { font-size: 20px; font-weight: 650; letter-spacing: -0.018em; line-height: 1
     radial-gradient(700px 520px at 0% 110%, rgba(143, 209, 79, 0.07), transparent 62%),
     linear-gradient(to bottom, var(--bg1), var(--bg));
 }
+.hero > .wrap { position: relative; z-index: 1; }
+
+/* The hero backdrop is a Blender render (Cycles) on pure black: one lit spline fitted through
+   a field of noisy samples. Screen-blended, so its black drops out and only light is added
+   over the gradient above. Faded under the copy and into the strip below; drifts a little
+   slower than the page (site.js). */
+.hero-3d {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 76%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 0, #000 76%, transparent 100%);
+}
+.hero-3d-fade {
+  position: absolute; inset: 0; will-change: transform;
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.14) 0, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.75) 54%, #000 66%);
+          mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.14) 0, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.75) 54%, #000 66%);
+}
+.hero-3d img {
+  width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 60% 38%;
+  transition: opacity 1.8s var(--ease), transform 2.6s var(--ease);
+}
+.hero-3d.wait img { opacity: 0; transform: scale(1.05); }
 .hero h1 { max-width: 11em; margin: 6px 0 24px; }
 .hero .lede { font-size: clamp(18px, 1.9vw, 21px); max-width: 560px; }
 .hero-ctas { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
@@ -296,10 +318,80 @@ h3 { font-size: 20px; font-weight: 650; letter-spacing: -0.018em; line-height: 1
 }
 .markers li.hl { background: rgba(143, 209, 79, 0.1); border-color: var(--border); color: var(--accent-text); }
 
+/* Early warning: the two-step ladder, in the app's own yellow and red */
+.tile.warn .markers { margin-top: 18px; }
+.ladder { list-style: none; display: grid; gap: 10px; margin-top: 22px; }
+.ladder li {
+  display: grid; grid-template-columns: 10px minmax(0, 1fr); column-gap: 14px; row-gap: 2px;
+  padding: 14px 16px; border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-soft);
+}
+.ladder li::before { content: ""; width: 10px; height: 10px; border-radius: 99px; margin-top: 6px; grid-row: 1 / span 2; }
+.ladder .l1::before { background: var(--amber); box-shadow: 0 0 0 4px rgba(232, 190, 46, 0.14); }
+.ladder .l2::before { background: var(--red); box-shadow: 0 0 0 4px rgba(226, 96, 74, 0.16); }
+.ladder b { font-size: 15.5px; font-weight: 650; line-height: 1.4; }
+.ladder span { grid-column: 2; font-size: 14px; color: var(--text-dim); line-height: 1.5; }
+.tile .warn-foot { margin-top: auto; padding-top: 20px; max-width: none; }
+
 .also { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr); gap: 40px; align-items: start; }
 .also h3 { font-size: 22px; }
 .also p { margin-top: 8px; }
 .also .markers { margin-top: 0; }
+
+/* ---------- Your year: a reel of real story slides ----------
+   Without JS (or with reduced motion) it's a plain horizontal scroller. site.js clones the
+   slides once and adds .is-looping, which turns it into a slow marquee that pauses on hover.
+   Each slide carries its own right margin, not flex gap, so -50% is exactly one period. */
+#year .sec-head { margin-bottom: 44px; }
+.reel {
+  position: relative; overflow-x: auto; padding: 8px 0 36px;
+  scrollbar-width: none; scroll-snap-type: x proximity;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+.reel::-webkit-scrollbar { display: none; }
+.reel:focus-visible { outline-offset: -6px; border-radius: 26px; }
+.reel-track { display: flex; width: max-content; padding-left: max(24px, calc(50% - 566px)); }
+.reel-track img {
+  flex: none; width: 236px; height: auto; aspect-ratio: 540 / 960; margin-right: 18px;
+  border-radius: 22px; scroll-snap-align: start;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+.reel.is-looping { overflow: hidden; }
+.reel.is-looping .reel-track { padding-left: 0; animation: reel 90s linear infinite; }
+.reel.is-looping:hover .reel-track,
+.reel.is-looping:focus-within .reel-track { animation-play-state: paused; }
+@keyframes reel { to { transform: translateX(-50%); } }
+
+.year-facts { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 8px; }
+.year-facts li { padding: 24px; border-radius: var(--radius); background: var(--surface-glass); border: 1px solid var(--border-soft); }
+.year-facts b { display: block; font-size: 16.5px; font-weight: 650; margin-bottom: 6px; }
+.year-facts span { display: block; font-size: 14.5px; color: var(--text-dim); line-height: 1.55; }
+
+/* ---------- Splino, the Ask Spline buddy ----------
+   Two Blender stills (eyes open, eyes shut) from the app's own model. CSS does what the app's
+   idle loop does: a slow float with a shadow that tightens as it rises, and a blink, then a
+   double blink. Decorative and aria-hidden; reduced motion leaves it standing still. */
+.splino { position: absolute; z-index: 3; width: var(--sp, 132px); pointer-events: none; }
+.splino-body { position: relative; display: block; animation: splino-float 4s ease-in-out infinite; filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.32)); }
+.splino-body img { display: block; width: 100%; height: auto; }
+.splino-blink { position: absolute; inset: 0; opacity: 0; animation: splino-blink 6s linear infinite; }
+.splino-open { animation: splino-open 6s linear infinite; }
+.splino-shadow {
+  position: absolute; left: 20%; right: 20%; bottom: -3%; height: 8%; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.5), transparent);
+  animation: splino-shadow 4s ease-in-out infinite;
+}
+@keyframes splino-float { 50% { transform: translateY(-9px); } }
+@keyframes splino-shadow { 50% { transform: scaleX(0.8); opacity: 0.55; } }
+@keyframes splino-blink {
+  0%, 15.5% { opacity: 0; } 15.6%, 17.4% { opacity: 1; } 17.5%, 60% { opacity: 0; }
+  60.1%, 61.8% { opacity: 1; } 61.9%, 64.4% { opacity: 0; } 64.5%, 66.2% { opacity: 1; } 66.3%, 100% { opacity: 0; }
+}
+@keyframes splino-open {
+  0%, 15.5% { opacity: 1; } 15.6%, 17.4% { opacity: 0; } 17.5%, 60% { opacity: 1; }
+  60.1%, 61.8% { opacity: 0; } 61.9%, 64.4% { opacity: 1; } 64.5%, 66.2% { opacity: 0; } 66.3%, 100% { opacity: 1; }
+}
 
 /* ---------- Ask Spline ---------- */
 .ask { padding: 64px 64px 0; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 56px; }
@@ -323,8 +415,17 @@ h3 { font-size: 20px; font-weight: 650; letter-spacing: -0.018em; line-height: 1
 }
 .siri { margin-top: 22px; font-size: 14.5px; color: #aebbaa; }
 .siri q { color: var(--text); font-weight: 600; }
+.meet {
+  margin-top: 20px; max-width: 600px; padding: 14px 18px; border-radius: var(--radius-sm);
+  font-size: 15px; line-height: 1.6; color: #aebbaa;
+  background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(168, 229, 92, 0.24);
+}
+.meet b { color: var(--text); font-weight: 650; }
 .ask-visual { position: relative; align-self: stretch; display: flex; justify-content: center; align-items: flex-end; }
 .ask-visual .device { --sc: 1; margin-bottom: -120px; }
+/* Splino hops out of the phone's top-left corner, beside its smaller self on screen. */
+.ask-stage { position: relative; }
+.ask-stage .splino { --sp: 140px; left: -88px; top: -112px; }
 
 /* ---------- Everywhere ---------- */
 .plat { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
@@ -429,10 +530,12 @@ td.them { color: var(--text-faint); }
 
 /* ---------- Final CTA ---------- */
 .get { padding: 72px 40px; text-align: center; }
+.get-mark { display: flex; align-items: flex-end; justify-content: center; gap: 16px; margin: 0 auto 30px; }
 .get .app-icon {
-  width: 96px; height: 96px; margin: 0 auto 28px; border-radius: 22.37%;
+  width: 96px; height: 96px; margin: 0; border-radius: 22.37%;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
+.get .splino-happy { position: relative; --sp: 82px; margin-bottom: 2px; }
 .get h2 { max-width: 16ch; margin: 0 auto 18px; }
 .get .lede { margin: 0 auto; color: #b9c7b4; }
 .get-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
@@ -452,6 +555,7 @@ footer .nav-links { margin: 0; flex-wrap: wrap; gap: 14px 24px; }
 /* ---------- Responsive ---------- */
 @media (max-width: 1080px) {
   .ask-visual .device { --sc: 0.84; margin-bottom: -96px; }
+  .ask-stage .splino { --sp: 124px; left: -76px; top: -98px; }
   .pmids { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .privacy { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .ask { padding: 48px 40px 0; gap: 36px; }
@@ -475,6 +579,18 @@ footer .nav-links { margin: 0; flex-wrap: wrap; gap: 14px 24px; }
   .ask-copy { padding-bottom: 8px; }
   .ask-visual .device { --sc: 0.66; margin-bottom: -210px; }
   .ask-visual { max-height: 460px; overflow: hidden; }
+  /* .ask-visual clips here, so give Splino headroom above the phone and keep it inside the edge. */
+  .ask-visual { padding-top: 104px; max-height: 564px; }
+  .ask-stage .splino { --sp: 84px; left: 14px; top: -104px; }
+  .year-facts { grid-template-columns: 1fr; }
+  /* Stacked hero: the copy sits on top, so dim the render from the top down instead, and
+     drop it so the bright stretch of the line runs behind the phone, not the proof stats. */
+  .hero-3d-fade {
+    top: 20%;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 0, rgba(0, 0, 0, 0.2) 34%, #000 50%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 0, rgba(0, 0, 0, 0.2) 34%, #000 50%);
+  }
+  .hero-3d img { object-position: 50% 40%; }
   .rules { grid-template-columns: 1fr; }
   .price-grid { grid-template-columns: 1fr; }
   .log li { grid-template-columns: 1fr; gap: 6px; }
@@ -489,6 +605,7 @@ footer .nav-links { margin: 0; flex-wrap: wrap; gap: 14px 24px; }
   .tile.text-only, .plat .tile.list { padding-bottom: 24px; }
   .get { padding: 56px 22px; }
   .hero-ctas .btn, .get-ctas .btn, .get-ctas .soon { flex: 1 1 100%; }
+  .reel-track img { width: 188px; margin-right: 14px; border-radius: 18px; }
   .plat .tile.wrist .ui { height: auto; flex-direction: column; }
   .tile .ui, .tile.w3 .ui { height: 280px; }
   .plat .tile.home .ui { height: 340px; }

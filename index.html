@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spline &mdash; The true line through the noise</title>
-<meta name="description" content="One clear call each morning from the iPhone and watch you already own: push, ease off or rest, with its reasons attached and its science cited. Sleep, recovery, training, food and bloodwork, all on your iPhone.">
+<meta name="description" content="One clear call each morning from the iPhone and watch you already own: push, ease off or rest, with its reasons attached and its science cited. Sleep, recovery, training, food, gut health and bloodwork, all on your iPhone.">
 <meta property="og:title" content="Spline &mdash; The true line through the noise">
 <meta property="og:description" content="One clear call each morning, with its reasons attached and its science cited. PubMed IDs, not vibes.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://cyberius-maximus.github.io/Spline/">
-<meta property="og:image" content="https://cyberius-maximus.github.io/Spline/assets/og.jpg">
+<meta property="og:url" content="https://www.spline-health.com/">
+<meta property="og:image" content="https://www.spline-health.com/assets/og.jpg">
+<link rel="canonical" href="https://www.spline-health.com/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta property="og:image:alt" content="Spline: The true line through the noise. One clear call each morning, with its science cited.">
@@ -59,6 +60,16 @@
 
 <!-- ============================== Hero ============================== -->
 <header class="hero" id="top">
+  <!-- Rendered in Blender (Cycles): one lit spline fitted through a field of noisy samples,
+       the tagline made literal. Screen-blended, so the black of the render drops out. -->
+  <div class="hero-3d" aria-hidden="true">
+    <div class="hero-3d-fade">
+      <picture>
+        <source media="(max-width: 900px)" srcset="assets/3d/hero-line-tall.webp" width="1200" height="1800">
+        <img src="assets/3d/hero-line.webp" width="2880" height="1800" alt="" decoding="async" fetchpriority="low">
+      </picture>
+    </div>
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="soon reveal">Launching soon on the App Store</p>
@@ -75,7 +86,7 @@
       <p class="hero-meta reveal">iPhone, iPad and Apple Watch &middot; English and Deutsch &middot; No account</p>
       <ul class="proof reveal">
         <li><b>70+</b><span>studies cited by PubMed ID</span></li>
-        <li><b>555</b><span>automated tests on the app&rsquo;s logic</span></li>
+        <li><b>660+</b><span>automated tests on the app&rsquo;s logic</span></li>
         <li><b>0</b><span>accounts to create</span></li>
         <li><b>0</b><span>servers holding your data</span></li>
       </ul>
@@ -182,7 +193,7 @@
     <header class="sec-head">
       <div class="kicker reveal">Features</div>
       <h2 class="reveal">Everything your data can tell you. <span class="dim">Nothing it can&rsquo;t.</span></h2>
-      <p class="lede reveal">Sleep, recovery, training, food and the long game. Each one built on a named method you can look up.</p>
+      <p class="lede reveal">Sleep, recovery, training, food, your gut and the long game. Each one built on a named method you can look up.</p>
     </header>
 
     <div class="bento">
@@ -240,6 +251,32 @@
       </article>
 
       <article class="tile w3 reveal">
+        <h3>Gut health, counted, not guessed</h3>
+        <p>Fiber against 30&nbsp;g a day, 30 different plants a week and fermented foods, all
+           counted from what you already log, plus an optional daily check-in. Each lever is
+           graded by its evidence. There&rsquo;s no microbiome score, because no validated one exists.</p>
+        <div class="ui">
+          <img src="assets/ui/gut.webp" width="900" height="807" loading="lazy" decoding="async"
+               alt="Gut health: 31 of 30 grams of fiber today, 28 grams a day this week and 30 grams reached on 4 of 7 days, with a bar per day. 37 of 30 plants this week, and fermented foods on 3 of 7 days">
+        </div>
+      </article>
+
+      <article class="tile w3 text-only warn reveal">
+        <h3>An early warning, honestly framed</h3>
+        <p>Five overnight vitals, each against your own range. One odd night never raises it.
+           It takes two vitals out together, or one staying out night after night. A hard
+           session, last night&rsquo;s drinks or your cycle phase are named and discounted.</p>
+        <ol class="ladder" aria-label="How the early warning escalates">
+          <li class="l1"><b>Early signs of strain</b><span>Two or more vitals outside your range on one night, the same one outside two nights running, or wrist temperature strongly raised.</span></li>
+          <li class="l2"><b>Your body may be fighting something</b><span>Three or more outside on one night, two or more on two nights running, or early signs three nights running.</span></li>
+        </ol>
+        <ul class="markers" aria-label="Vitals it reads">
+          <li>Resting HR</li><li>HRV</li><li>Respiration</li><li>Wrist temperature</li><li>Blood oxygen</li>
+        </ul>
+        <p class="fine warn-foot">An early warning, never a diagnosis. Its baseline leaves out the two most recent nights, so a cold that&rsquo;s already building can&rsquo;t become its own normal.</p>
+      </article>
+
+      <article class="tile w3 reveal">
         <h3>Biological age, taken apart <span class="pro-badge">Pro</span></h3>
         <p>The age your vitals read as, with the years each factor adds or subtracts. Labelled as
            an estimate, because it is one.</p>
@@ -252,7 +289,7 @@
       <article class="tile w3 reveal">
         <h3>A monthly review from your own data <span class="pro-badge">Pro</span></h3>
         <p>A scorecard against the month before, what moved most, and a chart for every
-           section. Ranked by how far each one moved.</p>
+           section, ranked by how far each one moved. Then play the month back as story slides.</p>
         <div class="ui">
           <img src="assets/ui/review.webp" width="900" height="1374" loading="lazy" decoding="async"
                alt="Monthly review: biggest change, sleep up 17 minutes a night. Scorecard of sessions, hours, average sleep, HRV, resting heart rate and perfect days, then what moved most">
@@ -308,6 +345,51 @@
   </div>
 </section>
 
+<!-- ============================== Your year ============================== -->
+<section id="year" data-anchor>
+  <div class="wrap">
+    <header class="sec-head">
+      <div class="kicker reveal">Your year</div>
+      <h2 class="reveal">Your year, read back to you. <span class="dim">Free.</span></h2>
+      <p class="lede reveal">
+        Totals, every day of the year at a glance, personal bests and achievements, all from what
+        your iPhone and watch recorded. In December it reads the year so far; the rest of the year,
+        last year stays a tap away.
+      </p>
+    </header>
+  </div>
+
+  <div class="reel reveal" role="region" aria-label="Year in review story slides" tabindex="0">
+    <div class="reel-track">
+      <img src="assets/story/summary.webp" width="540" height="960" loading="lazy" decoding="async"
+           alt="Year in review so far, 2026: signature Metronome, trained in 47 of 50 weeks; 228 sessions, 254 hours, 228 active days and 4,164 km">
+      <img src="assets/story/numbers.webp" width="540" height="960" loading="lazy" decoding="async"
+           alt="The year in numbers against 2025: 228 sessions, up 23; 254 hours, up 16; 4,164 km; average sleep 7 hours 15 minutes, up 14 minutes; HRV 63 ms, up 5">
+      <img src="assets/story/training.webp" width="540" height="960" loading="lazy" decoding="async"
+           alt="Training: 228 sessions and 254 hours, active on 228 of 348 days, by month; bike 115 hours, run 75 hours, strength 34 hours">
+      <img src="assets/story/everyday.webp" width="540" height="960" loading="lazy" decoding="async"
+           alt="Every day of 2026: one square per day for training, brighter when longer, and one per day for recovery, green when recovered">
+      <img src="assets/story/records.webp" width="540" height="960" loading="lazy" decoding="async"
+           alt="Personal bests: longest session 2 hours 48 minutes, furthest 78.3 km, biggest week 6.4 hours, best recovery 100">
+      <img src="assets/story/achievements.webp" width="540" height="960" loading="lazy" decoding="async"
+           alt="Achievements: 9 earned in 2026, 3 of them gold, shown as medals with their thresholds">
+      <img src="assets/story/sleep.webp" width="540" height="960" loading="lazy" decoding="async"
+           alt="Sleep: 7 hours 15 minutes a night on average, 212 of 310 nights at 7 hours or more">
+      <img src="assets/story/signature.webp" width="540" height="960" loading="lazy" decoding="async"
+           alt="Your 2026 signature: Metronome. You trained in 47 of 50 weeks">
+    </div>
+  </div>
+
+  <div class="wrap">
+    <ul class="year-facts">
+      <li class="reveal"><b>Achievements you can check</b><span>Bronze, silver and gold on published ladders, each dated the day you crossed it. Nothing for opening the app, and no comparing you with anyone else.</span></li>
+      <li class="reveal"><b>A signature, with its reason</b><span>Metronome, Powerhouse, Well rested and others, chosen by rule from your strongest measured trait, with the number that earned it printed underneath.</span></li>
+      <li class="reveal"><b>Story slides you choose to share</b><span>Play your year, or with Pro your month, as slides. Story, post or square, in five styles. Only what you pick leaves the phone.</span></li>
+    </ul>
+    <p class="demo-note reveal">Slides from the current build, shown with demo data.</p>
+  </div>
+</section>
+
 <!-- ============================== Ask Spline ============================== -->
 <section id="ask" data-anchor>
   <div class="wrap">
@@ -320,6 +402,10 @@
           data and the research behind each metric, on your iPhone. If it hasn&rsquo;t measured
           something, it says so.
         </p>
+        <p class="meet"><b>Meet Splino, the little spline that answers.</b> Modelled and animated
+          in Blender, it looks down while you type, looks up while it reads your numbers and talks
+          while the answer appears. It&rsquo;s there for company only: it never changes what an
+          answer says.</p>
         <ul class="rules-mini">
           <li><div><b>The model picks the topic. It never writes the numbers.</b>
             <span>The on-device model only works out what you&rsquo;re asking. The answer is built
@@ -340,11 +426,20 @@
         <p class="fine" style="margin-top:14px;color:#95a891">Ask Spline is part of Spline&nbsp;Pro.</p>
       </div>
       <div class="ask-visual">
-        <div class="device">
-          <div class="device-frame">
-            <div class="device-screen">
-              <img src="assets/screens/coach.webp" width="700" height="1522" loading="lazy" decoding="async"
-                   alt="Ask Spline answering What moves HRV: three levers with published evidence. Build an aerobic base, Sandercock 2005. Breathe slowly, daily, Laborde 2022. Keep alcohol away from sleep, Pietilä 2018. Each with its PubMed ID">
+        <div class="ask-stage">
+          <div class="splino" aria-hidden="true">
+            <span class="splino-shadow"></span>
+            <span class="splino-body">
+              <img class="splino-open" src="assets/3d/splino-open.webp" width="360" height="496" alt="" loading="lazy" decoding="async">
+              <img class="splino-blink" src="assets/3d/splino-blink.webp" width="360" height="496" alt="" loading="lazy" decoding="async">
+            </span>
+          </div>
+          <div class="device">
+            <div class="device-frame">
+              <div class="device-screen">
+                <img src="assets/screens/ask.webp" width="700" height="1522" loading="lazy" decoding="async"
+                     alt="Ask Spline with Splino at the top. Asked why readiness is where it is, it answers: Readiness 100, Prime, green light for Legs. HRV 68 ms, 11.5 percent above baseline; resting heart rate 48 bpm, 3 below baseline; sleep 7 hours 35 minutes; with its evidence, COVI-GAPP, PMID 35728900">
+              </div>
             </div>
           </div>
         </div>
@@ -397,9 +492,9 @@
       </article>
 
       <article class="tile share reveal">
-        <h3>Share cards</h3>
-        <p>Share a day, a session or a month as an image. Only what&rsquo;s on the card leaves
-           your phone.</p>
+        <h3>Share Studio</h3>
+        <p>Share a day, a session, a night, a month or your year as a story, post or square, in
+           five styles. Only what&rsquo;s on the card leaves your phone.</p>
         <div class="ui tight">
           <img src="assets/ui/share.webp" width="900" height="1124" loading="lazy" decoding="async"
                alt="Share card for a run: 55 minutes, 9.5 km, 5:47 per km, average heart rate 128, strain 6.8, with the heart-rate curve and the Spline wordmark">
@@ -447,6 +542,10 @@
       <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/35728900/" target="_blank" rel="noopener"><b>Illness early warning</b><em>COVI-GAPP study</em><small>PMID 35728900</small></a>
       <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/17414804/" target="_blank" rel="noopener"><b>4&times;4 intervals and VO&#8322;max</b><em>Helgerud 2007</em><small>PMID 17414804</small></a>
       <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/22106927/" target="_blank" rel="noopener"><b>Waist-to-height ratio</b><em>Ashwell 2012</em><small>PMID 22106927</small></a>
+      <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/34845389/" target="_blank" rel="noopener"><b>Wearable alerts before symptoms</b><em>Alavi 2021</em><small>PMID 34845389</small></a>
+      <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/30638909/" target="_blank" rel="noopener"><b>Fiber and disease risk</b><em>Reynolds 2019</em><small>PMID 30638909</small></a>
+      <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/29795809/" target="_blank" rel="noopener"><b>30 plants a week</b><em>McDonald 2018</em><small>PMID 29795809</small></a>
+      <a class="pmid" href="https://pubmed.ncbi.nlm.nih.gov/34256014/" target="_blank" rel="noopener"><b>Fermented foods trial</b><em>Wastyk 2021</em><small>PMID 34256014</small></a>
     </div>
 
     <div class="grades reveal" aria-label="Evidence grades used in the app">
@@ -510,7 +609,7 @@
     <ul class="privacy">
       <li class="reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="#a8e55c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.6"/><path d="M10.5 18.5h3"/></svg>
-        <b>Computed on your iPhone</b><span>Health data is read from Apple Health and analysed on the device.</span>
+        <b>Computed on your iPhone</b><span>Health data is read from Apple Health and analysed on the device. An optional Face&nbsp;ID or passcode lock keeps it to you.</span>
       </li>
       <li class="reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="#a8e55c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20.5c.9-3.5 3.7-5.6 7-5.6s6.1 2.1 7 5.6"/><path d="M3.5 3.5l17 17"/></svg>
@@ -522,7 +621,7 @@
       </li>
       <li class="reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="#a8e55c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11.5M7.5 10.5 12 15l4.5-4.5"/><path d="M4.5 16.5v2.5a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-2.5"/></svg>
-        <b>Take it with you</b><span>Full JSON and CSV export, free and unconditional.</span>
+        <b>Take it with you</b><span>Full JSON and CSV export, free and unconditional, plus a backup you can restore, with a week to undo it.</span>
       </li>
     </ul>
 
@@ -549,8 +648,8 @@
       <div class="kicker reveal">Pricing</div>
       <h2 class="reveal">Free where it counts. <span class="dim">Paid where it&rsquo;s deep.</span></h2>
       <p class="lede reveal">
-        Your daily call, sleep, recovery, training and every export of your own data stay free,
-        forever. Spline&nbsp;Pro adds the long-horizon analysis.
+        Your daily call, sleep, recovery, training, your year in review and every export of your
+        own data stay free, forever. Spline&nbsp;Pro adds the long-horizon analysis.
       </p>
     </header>
 
@@ -565,9 +664,12 @@
           <li><b>Recovery against your own 60-day range</b></li>
           <li><b>Training load, session analysis and strength log</b></li>
           <li><b>Food log: describe, scan or search</b></li>
+          <li><b>Gut health: fiber, 30 plants a week, fermented foods</b></li>
+          <li><b>Early illness warning from your overnight vitals</b></li>
           <li><b>Body composition, waist, VO&#8322;max and vitals</b></li>
           <li><b>Routines, habits, journal and breathwork</b></li>
-          <li><b>Widgets, Apple Watch app and share cards</b></li>
+          <li><b>Year in review, achievements and story slides</b></li>
+          <li><b>Widgets, Apple Watch app and Share Studio</b></li>
           <li><b>Every citation and formula</b></li>
           <li><b>Full JSON and CSV export</b></li>
         </ul>
@@ -583,8 +685,8 @@
           <li><b>Bloodwork and lab import</b><span>Lab PDFs and photos parsed on-device; PhenoAge, ApoB and Lp(a); changes tested against the Reference Change Value; peptide effect tracker</span></li>
           <li><b>Experiments and patterns</b><span>N-of-1 experiments with effect sizes, bootstrap confidence intervals and false-discovery correction, plus habit patterns found for you</span></li>
           <li><b>Adaptive planning</b><span>Race-aware periodization and per-exercise strength progression targets</span></li>
-          <li><b>Monthly review</b><span>A scorecard, what moved most, and a chart for every section</span></li>
-          <li><b>Ask Spline and shortcuts</b><span>Answers from your own data with cited levers, plus typed sentences turned into logged sets or a routine</span></li>
+          <li><b>Monthly review</b><span>A scorecard, what moved most, a chart for every section, and the month played back as story slides</span></li>
+          <li><b>Ask Spline and shortcuts</b><span>Splino answers from your own data with cited levers, plus typed sentences turned into logged sets or a routine</span></li>
         </ul>
         <p class="price-fine">Cancel any time in your Apple ID settings. Still no servers, no account, and no analytics on your health.</p>
       </div>
@@ -602,9 +704,13 @@
   <div class="wrap">
     <header class="sec-head">
       <div class="kicker reveal">What&rsquo;s new</div>
-      <h2 class="reveal">Recently added. <span class="dim">Most of it this month.</span></h2>
+      <h2 class="reveal">Recently added. <span class="dim">All of it in the last three weeks.</span></h2>
     </header>
     <ol class="log reveal">
+      <li><time datetime="2026-10-01">1 Oct 2026</time><div><b>Gut health</b><span>Fiber against 30&nbsp;g a day, 30 different plants a week, fermented foods and an optional daily check-in, each lever graded by its evidence. No invented microbiome score.</span></div></li>
+      <li><time datetime="2026-10-01">1 Oct 2026</time><div><b>Your year in review, and Splino</b><span>Totals, every day of the year at a glance, personal bests, achievements and a signature earned by a published rule, all playable as story slides. And Ask Spline gets a face: Splino, modelled and animated in Blender.</span></div></li>
+      <li><time datetime="2026-09-29">29 Sep 2026</time><div><b>A rebuilt early warning, and Share Studio</b><span>Five overnight vitals against baselines that leave out the last two nights, so a building cold can&rsquo;t become its own normal. Plus stories, posts and squares in five styles, and the monthly review as story slides.</span></div></li>
+      <li><time datetime="2026-09-23">23 Sep 2026</time><div><b>App Lock and restorable backups</b><span>An optional Face&nbsp;ID or passcode lock, and a backup you can restore, inspected first and undoable for a week.</span></div></li>
       <li><time datetime="2026-09-22">22 Sep 2026</time><div><b>Sleep regularity, measured the published way</b><span>Rebuilt minute by minute from your actual sleep, with night wakings and naps counted, as in the study it&rsquo;s anchored to.</span></div></li>
       <li><time datetime="2026-09-21">21 Sep 2026</time><div><b>A food log that learns</b><span>Describe meals in English or German, with real portion sizes and better matching. Spline remembers your corrections, and My Foods holds the recipes the databases don&rsquo;t have.</span></div></li>
       <li><time datetime="2026-09-18">18 Sep 2026</time><div><b>Ask Spline</b><span>Ask why a number moved or what to do about it. Answers come from your data, with the study behind each suggestion.</span></div></li>
@@ -619,9 +725,15 @@
 <section id="get" data-anchor>
   <div class="wrap">
     <div class="brand-surface get reveal">
-      <img class="app-icon" src="assets/icon-256.webp" width="256" height="256" alt="Spline app icon" loading="lazy" decoding="async">
+      <div class="get-mark">
+        <img class="app-icon" src="assets/icon-256.webp" width="256" height="256" alt="Spline app icon" loading="lazy" decoding="async">
+        <div class="splino splino-happy" aria-hidden="true">
+          <span class="splino-shadow"></span>
+          <span class="splino-body"><img src="assets/3d/splino-happy.webp" width="360" height="496" alt="" loading="lazy" decoding="async"></span>
+        </div>
+      </div>
       <h2>Stop trusting scores. Start reading them.</h2>
-      <p class="lede">Spline isn&rsquo;t on the App Store yet, but it&rsquo;s close. Free to start, with no account, and your data stays on your iPhone.</p>
+      <p class="lede">Spline isn&rsquo;t on the App Store yet, but it&rsquo;s close. Look for Spline&nbsp;Health. Free to start, with no account, and your data stays on your iPhone.</p>
       <div class="get-ctas">
         <!-- TODO: once the listing is live, swap this badge for the App Store URL with Apple's official badge, and drop the hero badge and the "Launching soon" nav buttons on every page. -->
         <span class="soon lg">Launching soon</span>
