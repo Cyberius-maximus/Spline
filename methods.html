@@ -3,40 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Methods &mdash; Spline</title>
-<meta name="description" content="Every metric in Spline, exactly how it's computed and the peer-reviewed evidence behind it. The same explanations shown in the app, public so you can check the maths before you download.">
+<title>Spline Methods &mdash; how readiness, sleep score and HRV are calculated</title>
+<meta name="description" content="How Spline calculates readiness, sleep score, sleep regularity, its illness early warning, biological age and more: the exact formulas, ranges and PubMed sources.">
+<meta name="robots" content="max-image-preview:large">
+<link rel="canonical" href="https://www.spline-health.com/methods.html">
+<meta property="og:site_name" content="Spline Health">
 <meta property="og:title" content="Spline &mdash; Methods">
 <meta property="og:description" content="How every score is built, and the PubMed evidence behind it. No black boxes.">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https://www.spline-health.com/methods.html">
 <meta property="og:image" content="https://www.spline-health.com/assets/og.jpg">
-<link rel="canonical" href="https://www.spline-health.com/methods.html">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta property="og:image:alt" content="Spline: The true line through the noise. One clear call each morning, with its science cited.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#070a08">
 <meta name="color-scheme" content="dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M10 48 C 22 46, 26 34, 34 26 S 48 16, 54 16' fill='none' stroke='%238FD14F' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/site.css?v=20261004">
+<link rel="stylesheet" href="assets/site.css?v=20261004b">
+<!-- Structured data: this page as a cited article about the app (defined on index.html).
+     "citation" lists every PubMed link below; dateModified matches the date under the h1. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://www.spline-health.com/methods.html#article",
+      "headline": "How every number in Spline is built",
+      "description": "How Spline calculates readiness, sleep score, sleep regularity, the illness early warning, biological age and every other metric: the exact formulas, ranges and the peer-reviewed evidence behind them.",
+      "url": "https://www.spline-health.com/methods.html",
+      "inLanguage": "en",
+      "dateModified": "2026-10-02",
+      "image": "https://www.spline-health.com/assets/og.jpg",
+      "author": {
+        "@type": "Organization",
+        "@id": "https://www.spline-health.com/#organization",
+        "name": "Spline",
+        "alternateName": "Spline Health",
+        "url": "https://www.spline-health.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.spline-health.com/#organization",
+        "name": "Spline",
+        "alternateName": "Spline Health",
+        "url": "https://www.spline-health.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.spline-health.com/assets/apple-touch-icon.png"
+        }
+      },
+      "about": {
+        "@type": "MobileApplication",
+        "@id": "https://www.spline-health.com/#app",
+        "name": "Spline",
+        "alternateName": "Spline Health",
+        "operatingSystem": "iOS 17 or later",
+        "applicationCategory": "HealthApplication"
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.spline-health.com/#website",
+        "name": "Spline Health",
+        "url": "https://www.spline-health.com/"
+      },
+      "citation": [
+        "https://pubmed.ncbi.nlm.nih.gov/35728900/",
+        "https://pubmed.ncbi.nlm.nih.gov/26909534/",
+        "https://pubmed.ncbi.nlm.nih.gov/29809080/",
+        "https://pubmed.ncbi.nlm.nih.gov/22367011/",
+        "https://pubmed.ncbi.nlm.nih.gov/9662690/",
+        "https://pubmed.ncbi.nlm.nih.gov/23247672/",
+        "https://pubmed.ncbi.nlm.nih.gov/20861519/",
+        "https://pubmed.ncbi.nlm.nih.gov/10536127/",
+        "https://pubmed.ncbi.nlm.nih.gov/37738616/",
+        "https://pubmed.ncbi.nlm.nih.gov/26039963/",
+        "https://pubmed.ncbi.nlm.nih.gov/20469800/",
+        "https://pubmed.ncbi.nlm.nih.gov/28346153/",
+        "https://pubmed.ncbi.nlm.nih.gov/20815182/",
+        "https://pubmed.ncbi.nlm.nih.gov/2420557/",
+        "https://pubmed.ncbi.nlm.nih.gov/24235903/",
+        "https://pubmed.ncbi.nlm.nih.gov/29549064/",
+        "https://pubmed.ncbi.nlm.nih.gov/33208926/",
+        "https://pubmed.ncbi.nlm.nih.gov/34845389/",
+        "https://pubmed.ncbi.nlm.nih.gov/34586364/",
+        "https://pubmed.ncbi.nlm.nih.gov/33301493/",
+        "https://pubmed.ncbi.nlm.nih.gov/33318528/",
+        "https://pubmed.ncbi.nlm.nih.gov/33529156/",
+        "https://pubmed.ncbi.nlm.nih.gov/30646252/",
+        "https://pubmed.ncbi.nlm.nih.gov/29676998/",
+        "https://pubmed.ncbi.nlm.nih.gov/22106927/",
+        "https://pubmed.ncbi.nlm.nih.gov/20819243/",
+        "https://pubmed.ncbi.nlm.nih.gov/39210715/",
+        "https://pubmed.ncbi.nlm.nih.gov/37345492/",
+        "https://pubmed.ncbi.nlm.nih.gov/29133356/",
+        "https://pubmed.ncbi.nlm.nih.gov/12493255/",
+        "https://pubmed.ncbi.nlm.nih.gov/11791038/",
+        "https://pubmed.ncbi.nlm.nih.gov/39210723/",
+        "https://pubmed.ncbi.nlm.nih.gov/35076659/",
+        "https://pubmed.ncbi.nlm.nih.gov/30638909/",
+        "https://pubmed.ncbi.nlm.nih.gov/29795809/",
+        "https://pubmed.ncbi.nlm.nih.gov/34256014/",
+        "https://pubmed.ncbi.nlm.nih.gov/29166320/",
+        "https://pubmed.ncbi.nlm.nih.gov/34774538/",
+        "https://pubmed.ncbi.nlm.nih.gov/9299672/",
+        "https://pubmed.ncbi.nlm.nih.gov/15741842/",
+        "https://pubmed.ncbi.nlm.nih.gov/35623448/",
+        "https://pubmed.ncbi.nlm.nih.gov/30513777/",
+        "https://pubmed.ncbi.nlm.nih.gov/17414804/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Spline Health",
+          "item": "https://www.spline-health.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Methods",
+          "item": "https://www.spline-health.com/methods.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="page">
 <nav id="nav">
   <div class="wrap nav-inner">
-    <a class="logo" href="index.html#top" aria-label="Spline home"><svg viewBox="0 0 64 64" aria-hidden="true">
+    <a class="logo" href="/#top" aria-label="Spline home"><svg viewBox="0 0 64 64" aria-hidden="true">
         <path d="M10 48 C 22 46, 26 34, 34 26 S 48 16, 54 16" fill="none"
               stroke="#8FD14F" stroke-width="7" stroke-linecap="round"/>
       </svg> Spline</a>
     <div class="nav-links">
-      <a href="index.html#features">Features</a>
-      <a href="index.html#ask">Ask Spline</a>
-      <a href="index.html#evidence">Evidence</a>
-      <a href="index.html#pricing">Pricing</a>
+      <a href="/#features">Features</a>
+      <a href="/#ask">Ask Spline</a>
+      <a href="/#evidence">Evidence</a>
+      <a href="/#pricing">Pricing</a>
       <a href="methods.html" aria-current="page">Methods</a>
     </div>
-    <a class="btn small" href="index.html#get">Launching soon</a>
+    <a class="btn small" href="/#get">Launching soon</a>
   </div>
 </nav>
 
@@ -49,6 +165,7 @@
       here so you can check the maths <em>before</em> you download. Each entry says what the metric
       is, exactly how it&rsquo;s computed, its range, and the peer-reviewed evidence behind it.
     </p>
+    <p class="fine methods-updated">Last updated <time datetime="2026-10-02">2 October 2026</time> &middot; 43 studies linked on this page, each by PubMed ID</p>
     <ul class="methods-toc">
       <li><a href="#readiness">Readiness &amp; training</a></li>
       <li><a href="#sleep">Sleep</a></li>
@@ -65,7 +182,7 @@
 
   <h2 id="readiness">Readiness &amp; training</h2>
 
-  <div class="method">
+  <div class="method" id="readiness-score">
     <h3>Readiness</h3>
     <p class="what">A 0&ndash;100 read on how recovered you are this morning, blended from your overnight physiology against your own personal baselines, not a population average.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Starts at 100. HRV against your personal band adds or subtracts the most; resting heart rate above baseline subtracts; sleep is penalised below about 7&nbsp;h and above about 8.5&nbsp;h; raised respiration and wrist temperature apply small illness penalties.</div></div>
@@ -73,7 +190,7 @@
     <div class="cite">HRV against your own baseline; illness panel validated by COVI-GAPP &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/35728900/">PMID 35728900</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="todays-call">
     <h3>Today&rsquo;s call (HRV gate)</h3>
     <p class="what">Turns your recovery into a concrete training decision: proceed, ease, swap to easy, or rest.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">HRV against your personal band is the primary signal. Form (TSB) and the illness early warning can only downgrade a hard day toward rest; they never upgrade it. Easy days are never gated. With no HRV this morning, or no personal band yet, the call is <em>unknown</em> and the app says nothing rather than guess, unless an illness signal or very low form is real evidence on its own.</div></div>
@@ -81,7 +198,7 @@
     <div class="cite">HRV-guided training: Vesterinen 2016 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/26909534/">PMID 26909534</a>; Javaloyes 2019 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/29809080/">PMID 29809080</a>. Personal bands on ln(RMSSD): Plews 2012 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/22367011/">PMID 22367011</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="training-status">
     <h3>Training status</h3>
     <p class="what">One verdict on where your training is heading, with every input shown rather than hidden.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Combines your CTL (fitness) slope, ACWR (acute:chronic load) and Foster monotony. A strain or spike signal overrides a &ldquo;productive&rdquo; read (priority-ordered).</div></div>
@@ -89,7 +206,7 @@
     <div class="cite">Banister fitness-fatigue model; Foster monotony and strain &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/9662690/">PMID 9662690</a>. ACWR is a contested soft guardrail, and framed as one in the app.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="cumulative-load">
     <h3>Cumulative load</h3>
     <p class="what">The slow-moving &ldquo;are you quietly digging a hole?&rdquo; read that daily readiness can&rsquo;t capture.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">An honest reserve from training load (TSB), HRV trend, resting-heart-rate drift and sleep debt, with each component shown. It refuses to fake a minute-by-minute battery.</div></div>
@@ -97,7 +214,7 @@
     <div class="cite">Overtraining framework: Meeusen 2013 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/23247672/">PMID 23247672</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="session-analysis">
     <h3>Session analysis</h3>
     <p class="what">What one workout actually did: how its minutes spread across your heart-rate zones, how much load it carried and, when your watch measured it, how fast your heart rate came down afterwards.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Every heart-rate sample recorded during the session is placed in your personal zones (from your LTHR when set, else your max HR); a sample stands for the time until the next one, capped at 60&nbsp;s so a dropout can&rsquo;t smear one reading across minutes. Session strain uses the same Banister TRIMP weighting and 0&ndash;21 scale as Day Strain, so the two compare directly. The intensity label is descriptive: easy (80% or more of minutes in Z1&ndash;2), threshold (35% or more in Z3), hard (20% or more in Z4&ndash;5) or mixed. It does not estimate a &ldquo;training effect&rdquo;. One-minute recovery is shown only when your watch measured it; it is never computed from an unstructured stop.</div></div>
@@ -107,7 +224,7 @@
 
   <h2 id="sleep">Sleep</h2>
 
-  <div class="method">
+  <div class="method" id="sleep-score">
     <h3>Sleep score</h3>
     <p class="what">One number for last night, built only from the parts of sleep the research supports.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Three components, weighted and renormalised over whatever was measured: regularity (the Sleep Regularity Index below) 40%, duration 35%, efficiency 25%. Duration scores 100 inside 7&ndash;9&nbsp;h (7&ndash;8&nbsp;h from age 65), losing 30 points per hour short and 12 per hour over, floored at 40. Efficiency scores 100 at 90% or better, 80 at 85%, and 0 at 65% or below. Regularity follows the UK Biobank distribution: an SRI of 87 scores 100, the median of 81 scores 78, and 60 scores 0. A score needs at least two components; duration alone is not a score, and a missing component is shown as missing, never filled in.</div></div>
@@ -116,7 +233,7 @@
     <div class="cite">Regularity outranks duration: Windred 2024 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/37738616/">PMID 37738616</a>; adults need 7&nbsp;h or more: Watson 2015 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/26039963/">PMID 26039963</a>; short and long sleep and mortality: Cappuccio 2010 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/20469800/">PMID 20469800</a>; sleep-quality consensus: Ohayon 2017 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/28346153/">PMID 28346153</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="sleep-regularity">
     <h3>Sleep regularity (SRI)</h3>
     <p class="what">How consistent your sleep timing is from one day to the next. In a UK Biobank study of 60,977 people, it predicted mortality more strongly than sleep duration did.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">The Sleep Regularity Index: the probability that you&rsquo;re in the same state, asleep or awake, at the same minute on two consecutive days, scaled 0&ndash;100. Spline computes it minute by minute from the sleep your devices recorded, as the study did: waking in the night counts as awake, and naps count as sleep. Only nights exactly one calendar day apart are paired, so a missing night never compares Monday with Wednesday. It uses the latest 13 pairs within 28 days and needs at least 5.</div></div>
@@ -125,7 +242,7 @@
     <div class="cite">Definition: Phillips 2017. Mortality and population distribution: Windred 2024 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/37738616/">PMID 37738616</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="sleep-debt">
     <h3>Staging confidence &amp; sleep debt</h3>
     <p class="what">Two honesty layers most apps skip.</p>
     <div class="row"><div class="k">Confidence</div><div class="v">Spline borrows sleep staging from your device rather than owning it, so it flags low-confidence nights (phone-only detection, very short or fragmented sleep) instead of presenting stage percentages as fact. Nothing in the sleep score depends on staging, so the score stays valid on those nights.</div></div>
@@ -133,7 +250,7 @@
     <div class="cite">One long night doesn&rsquo;t repay chronic restriction: Banks 2010 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/20815182/">PMID 20815182</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="tonights-plan">
     <h3>Tonight&rsquo;s plan</h3>
     <p class="what">When to turn the lights out tonight so you still wake at your usual time with the sleep you need, worked out from your own recent nights rather than a generic eight hours.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Your wake time stays where it usually is: the median of your last 14 nights, rounded to five minutes and never moved, because a lie-in trades the bigger lever (regularity) for the smaller one. From it the plan counts back the sleep you need: 7.5&nbsp;h, plus up to an hour while you are repaying debt, spread over several nights, divided by your own sleep efficiency, plus 15 minutes to fall asleep. Wind-down starts 45 minutes before lights-out and caffeine stops 6 hours before it. One night never moves your bedtime more than 45 minutes earlier than usual, and the plan needs five recent nights before it says anything. The same plan appears on the widgets and your watch in the evening.</div></div>
@@ -141,7 +258,7 @@
     <div class="cite">Adults need 7&nbsp;h or more: Watson 2015 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/26039963/">PMID 26039963</a>; regular timing outranks duration for mortality: Windred 2024 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/37738616/">PMID 37738616</a>; one long night does not repay chronic restriction: Banks 2010 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/20815182/">PMID 20815182</a>; sleep is hardest to start in the hours before your usual bedtime: Lavie 1986 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/2420557/">PMID 2420557</a>; caffeine 6&nbsp;h before bed: Drake 2013 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/24235903/">PMID 24235903</a>; normal time to fall asleep: Ohayon 2017 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/28346153/">PMID 28346153</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="alcohol-caffeine">
     <h3>Alcohol &amp; caffeine</h3>
     <p class="what">The two logged habits with the largest measured effect on overnight recovery, shown beside your sleep numbers and never folded into readiness.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Alcohol: drinks logged in Apple Health from noon yesterday to 6:00 today, at 14&nbsp;g of pure alcohol each, divided by your body weight and placed in a dose band. Without a body weight, no band is claimed, because the bands are per kilogram. Caffeine: milligrams logged within six hours of your usual bedtime (the median of your last 14 nights). 200&nbsp;mg or more is flagged; smaller amounts are only marked &ldquo;watch&rdquo;, because smaller doses weren&rsquo;t tested.</div></div>
@@ -152,13 +269,13 @@
 
   <h2 id="signals">Everyday signals</h2>
 
-  <div class="method">
+  <div class="method" id="lead-signal">
     <h3>Today&rsquo;s lead signal</h3>
     <p class="what">The one signal furthest outside your own normal range this morning, named first. Or nothing, when nothing is.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Candidate signals are ranked by how far each sits outside your personal range. The card cannot be shown without the measurement that triggered it: the reason is a required part of it, not optional text. It stays silent unless a usable HRV band and a readiness score exist, because &ldquo;nothing is out of range&rdquo; would otherwise only mean &ldquo;nothing was measured&rdquo;. There is deliberately no all-clear card: on a normal day, absence is the signal.</div></div>
   </div>
 
-  <div class="method">
+  <div class="method" id="illness-warning">
     <h3>Illness early warning</h3>
     <p class="what">A multi-night watch on five overnight vitals, for the days before you feel ill. It names what it saw and never diagnoses.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Each night, resting heart rate, HRV, respiratory rate, wrist temperature and blood oxygen are compared with your own baseline: the 35 nights ending three nights earlier, so the two most recent nights can&rsquo;t pull an illness that is already building into your normal. The centre is the median and the spread a robust 1.4826&nbsp;&times;&nbsp;MAD, floored per vital so a very steady person&rsquo;s tiny spread can&rsquo;t turn a trivial change into an alarm. HRV is compared on a log scale. A vital counts as outside when it sits at least two spreads from the centre in the illness direction <em>and</em> past a change that matters physiologically (3&nbsp;bpm, a 15% HRV drop, 1 breath a minute, 0.3&nbsp;&deg;C, 2 points of SpO&#8322;); &ldquo;strong&rdquo; means three spreads and 1.5 times that change.</div></div>
@@ -168,20 +285,20 @@
     <div class="cite">Pre-symptomatic resting heart rate: Mishra 2020 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/33208926/">PMID 33208926</a>; real-time alerting, a median of 3 days before symptoms: Alavi 2021 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/34845389/">PMID 34845389</a>; influenza and the common cold: Grzesiak 2021 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/34586364/">PMID 34586364</a>; respiratory rate: Miller 2020 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/33301493/">PMID 33301493</a>; wrist temperature: Smarr 2020 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/33318528/">PMID 33318528</a>; Apple Watch HRV: Hirten 2021 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/33529156/">PMID 33529156</a>; five signals moving together: COVI-GAPP, Risch 2022 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/35728900/">PMID 35728900</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="check-ins">
     <h3>Check-ins</h3>
     <p class="what">A single, specific question when a signal persists, so the app learns context it can&rsquo;t measure.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Asked only when a signal has persisted for three or more consecutive days, never after a one-day spike. Your answer becomes a journal tag on that day, which the pattern engine can later test. One question at a time, strongest first; answering or dismissing hides it for 14 days. It all happens on your iPhone.</div></div>
   </div>
 
-  <div class="method">
+  <div class="method" id="habit-patterns">
     <h3>Habit patterns <span class="pill">Pro</span></h3>
     <p class="what">Which of your habits and journal tags travel with better or worse recovery, found automatically and reported with the caution they deserve.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Every habit and tag is compared against the <em>next</em> morning&rsquo;s HRV, resting heart rate and sleep, never the same morning. A pattern is reported only if the effect is at least small-to-moderate (|Hedges&rsquo; g| of 0.3 or more), its bootstrap confidence interval excludes zero, each side has at least 10 nights, and it survives Benjamini&ndash;Hochberg false-discovery correction across every test run. Findings are worded as associations, never causes, with the option to test one properly as an N-of-1 experiment.</div></div>
     <div class="cite">False-discovery rate: Benjamini &amp; Hochberg 1995; Hedges&rsquo; g effect size with bootstrap confidence intervals.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="stress-history">
     <h3>Stress history</h3>
     <p class="what">How your daytime stress has trended, described rather than scored.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Daytime stress is derived from each day&rsquo;s continuous heart rate and stored once a day from then on. The history reports the days above your own median, and whether the newest third of the window differs from the oldest third (thirds, not halves, so a fortnight-long shift isn&rsquo;t averaged away). With fewer than 14 days it says nothing.</div></div>
@@ -190,7 +307,7 @@
 
   <h2 id="longevity">Body, longevity &amp; bloodwork</h2>
 
-  <div class="method">
+  <div class="method" id="biological-age">
     <h3>Biological age (wearable) <span class="pill">Pro</span></h3>
     <p class="what">A transparent wearable estimate of how old your body &ldquo;reads&rdquo;, against your calendar age.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Each factor (VO&#8322;max, resting heart rate, HRV, sleep, sleep consistency, body fat and activity) adds or subtracts years against a sex-specific healthy anchor. The factors sum to your offset, and each shows its own &plusmn; years. It needs at least three measured markers; a marker with no data is left out rather than counted as zero.</div></div>
@@ -198,7 +315,7 @@
     <div class="cite">Composite of validated markers; VO&#8322;max and mortality: Mandsager 2018 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/30646252/">PMID 30646252</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="phenoage">
     <h3>Blood biological age (PhenoAge) <span class="pill">Pro</span></h3>
     <p class="what">A mortality-linked biological age computed from nine standard chemistry and blood-count markers.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">The Levine PhenoAge formula: a weighted combination of albumin, creatinine, glucose, CRP, lymphocyte %, MCV, RDW, alkaline phosphatase, white-cell count and age, mapped through a Gompertz mortality model. All unit conversions are pinned by tests.</div></div>
@@ -206,21 +323,21 @@
     <div class="cite">Levine 2018 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/29676998/">PMID 29676998</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="rcv">
     <h3>Marker change significance (RCV) <span class="pill">Pro</span></h3>
     <p class="what">Whether a lab result actually moved, or just wobbled within assay and biological noise.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Reference Change Value from each marker&rsquo;s within-subject and analytical variation (asymmetric for right-skewed markers like CRP and triglycerides). Readings in different units or assays are refused rather than wrongly compared. Retest cadence follows the same biological-variation data.</div></div>
     <div class="cite">EFLM / Westgard biological-variation estimates; conservative, for &ldquo;is this real?&rdquo;, not clinical decisions.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="marker-levers">
     <h3>What actually moves each marker</h3>
     <p class="what">When a biomarker is out of range, the app lists the highest-leverage interventions, each with an explicit evidence grade and a PubMed link, and an honest flag when the strong option is a prescription only a doctor can start.</p>
     <div class="row"><div class="k">Evidence grades</div><div class="v"><b style="color:#79c942">Strong</b> &middot; <b style="color:var(--accent-text)">Moderate</b> &middot; <b style="color:var(--amber)">Emerging</b> &middot; <b style="color:var(--blue)">Clinical</b></div></div>
     <div class="row"><div class="v">It never poses as medical advice: &ldquo;Clinical&rdquo; means bring the numbers to your doctor. Lp(a), for example, is framed as genetically fixed: the actionable response is to drive every other atherogenic particle low, not to chase a number lifestyle barely changes.</div></div>
   </div>
 
-  <div class="method">
+  <div class="method" id="waist-to-height">
     <h3>Waist-to-height ratio</h3>
     <p class="what">Waist circumference divided by height: a better single predictor of cardiometabolic risk than BMI or waist alone, and it doesn&rsquo;t misread muscular builds the way BMI does.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Your waist from Apple Health or a manual entry (which is written back to Health), divided by your height.</div></div>
@@ -230,7 +347,7 @@
 
   <h2 id="heart">Heart &amp; blood pressure</h2>
 
-  <div class="method">
+  <div class="method" id="blood-pressure">
     <h3>Blood pressure (home cuff)</h3>
     <p class="what">A blood-pressure cuff at home must be judged differently from one at the clinic: on a multi-day average, against lower home thresholds. Most apps quietly apply the office 140/90 to home readings, which is wrong.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Averages your recent home readings (a 7-day morning and evening average is the clinically valid number; a single reading is not a diagnosis). Category uses the ESC 2024 European scheme on home values (Non-elevated below 120/70, Elevated 120&ndash;134/70&ndash;84, Hypertension 135/85 and above), assigned by the higher of systolic and diastolic. ACC/AHA 2017 (US, home threshold 130/80) is shown as a comparison.</div></div>
@@ -239,7 +356,7 @@
     <div class="cite">ESC 2024 &mdash; McEvoy, <a href="https://pubmed.ncbi.nlm.nih.gov/39210715/">PMID 39210715</a>; ESH 2023 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/37345492/">PMID 37345492</a>; ACC/AHA 2017 &mdash; <a href="https://pubmed.ncbi.nlm.nih.gov/29133356/">PMID 29133356</a>; continuous risk &mdash; Lewington 2002, <a href="https://pubmed.ncbi.nlm.nih.gov/12493255/">PMID 12493255</a>; pulse pressure and mortality &mdash; INDANA, <a href="https://pubmed.ncbi.nlm.nih.gov/11791038/">PMID 11791038</a>.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="ecg">
     <h3>ECG rhythm screening</h3>
     <p class="what">When an Apple Watch supplies a single-lead ECG, the app shows its rhythm result, honestly framed.</p>
     <div class="row"><div class="k">What it is, and isn&rsquo;t</div><div class="v">A single-lead flag (sinus rhythm, possible atrial fibrillation, or inconclusive) is a <strong>screening</strong> signal, never a diagnosis. A possible-AFib result means: have a clinician confirm it with a medical 12-lead ECG; never start or stop medication based on the device. Inconclusive results are shown as such, not hidden.</div></div>
@@ -249,7 +366,7 @@
 
   <h2 id="food">Food &amp; gut</h2>
 
-  <div class="method">
+  <div class="method" id="food-log">
     <h3>Food log numbers</h3>
     <p class="what">How a typed meal becomes calories without the AI inventing a number.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Apple&rsquo;s on-device model, or a built-in parser where Apple Intelligence isn&rsquo;t available, only reads food names and amounts from what you wrote. Nutrition comes from food databases: Germany&rsquo;s BLS, France&rsquo;s CIQUAL, Denmark&rsquo;s Frida, the USDA&rsquo;s FNDDS (foods as eaten, with measured portion weights), and Open Food Facts for packaged products. Every portion shows where its weight came from: your own earlier correction, the food&rsquo;s own portion, the label serving, a similar USDA food, or a density-aware estimate. Your corrections are remembered on your iPhone, where you can review or forget them.</div></div>
@@ -257,7 +374,7 @@
     <div class="cite">BLS 4.0 (Max Rubner-Institut, CC BY 4.0); Table CIQUAL 2025 (ANSES, Etalab Open Licence 2.0); Frida 5.5 (DTU National Food Institute, CC BY 4.0); FNDDS 2021&ndash;2023 (USDA Agricultural Research Service, public domain); Open Food Facts.</div>
   </div>
 
-  <div class="method">
+  <div class="method" id="gut-health">
     <h3>Gut health</h3>
     <p class="what">Only what can be measured from what you already log, with every lever graded honestly. The microbiome is where wellness marketing is loudest and the evidence thinnest.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Fiber: grams a day from your food log, against at least 30&nbsp;g, the German Nutrition Society&rsquo;s adult target. Plants: each different vegetable, fruit, legume, whole grain, nut, seed, herb or spice counts once a week however often you eat it, recognised in English and German food names. Fermented foods: the days this week with yoghurt, kefir, sauerkraut, kimchi, kombucha and the like. Movement: your recorded training minutes. An optional daily check-in records stool form on the Bristol scale and bloating.</div></div>
@@ -268,7 +385,7 @@
 
   <h2 id="year">Your year</h2>
 
-  <div class="method">
+  <div class="method" id="year-in-review">
     <h3>Year in review</h3>
     <p class="what">Your year, read back from what your devices recorded: totals, every day at a glance, personal bests, achievements and a signature. Free.</p>
     <div class="row"><div class="k">When</div><div class="v">In December it reads the year so far; the rest of the year, it reads the last complete one. It needs at least 30 days with anything measured (a run, a night, a morning HRV). Below that, a year in review would only be a week in review, so it isn&rsquo;t offered.</div></div>
@@ -278,7 +395,7 @@
 
   <h2 id="ask">Ask Spline</h2>
 
-  <div class="method">
+  <div class="method" id="ask-spline-answers">
     <h3>How answers are built <span class="pill">Pro</span></h3>
     <p class="what">Why the coach can&rsquo;t make up a number.</p>
     <div class="row"><div class="k">How it&rsquo;s built</div><div class="v">Your question is routed to a topic (readiness, sleep, training, HRV, a data lookup and so on), first by whole-word keywords in English and German, and only if that finds nothing, by Apple&rsquo;s on-device model. The model may choose a topic; it never writes the answer. The app then composes the answer from the same values your cards show and the engines&rsquo; own verdicts (the gate, tonight&rsquo;s plan, the strain target), so the coach and the cards cannot disagree. Missing data is stated as missing. A data question such as &ldquo;when was my HRV lowest last month?&rdquo; becomes a query over the same data the charts draw, and the interpreted query is shown above the answer so a misread question is visible.</div></div>
@@ -296,15 +413,15 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <a class="logo" href="index.html#top"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <a class="logo" href="/#top"><svg viewBox="0 0 64 64" aria-hidden="true">
         <path d="M10 48 C 22 46, 26 34, 34 26 S 48 16, 54 16" fill="none"
               stroke="#8FD14F" stroke-width="7" stroke-linecap="round"/>
       </svg> Spline</a>
       <div class="nav-links">
-        <a href="index.html#features">Features</a>
-        <a href="index.html#ask">Ask Spline</a>
-        <a href="index.html#evidence">Evidence</a>
-        <a href="index.html#pricing">Pricing</a>
+        <a href="/#features">Features</a>
+        <a href="/#ask">Ask Spline</a>
+        <a href="/#evidence">Evidence</a>
+        <a href="/#pricing">Pricing</a>
         <a href="methods.html">Methods</a>
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy</a>

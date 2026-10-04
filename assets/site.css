@@ -526,6 +526,13 @@ td.them { color: var(--text-faint); }
 .log b { font-size: 17px; font-weight: 650; display: block; margin-bottom: 3px; }
 .log span { color: var(--text-dim); font-size: 15.5px; line-height: 1.55; }
 
+/* ---------- FAQ ---------- */
+.faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.faq article { padding: 28px; border-radius: var(--radius); background: var(--surface-glass); border: 1px solid var(--border-soft); }
+.faq h3 { font-size: 18px; margin-bottom: 8px; }
+.faq p { color: var(--text-dim); font-size: 15.5px; line-height: 1.6; }
+.faq a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+
 /* ---------- Final CTA ---------- */
 .get { padding: 72px 40px; text-align: center; }
 .get-mark { display: flex; align-items: flex-end; justify-content: center; gap: 16px; margin: 0 auto 30px; }
@@ -592,13 +599,14 @@ footer .nav-links { margin: 0; flex-wrap: wrap; gap: 14px 24px; }
   .rules { grid-template-columns: 1fr; }
   .price-grid { grid-template-columns: 1fr; }
   .log li { grid-template-columns: 1fr; gap: 6px; }
+  .faq { grid-template-columns: 1fr; }
   .surf { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .wrap { padding: 0 20px; }
   .pmids { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .privacy { grid-template-columns: 1fr; }
-  .card, .rule, .price-card, .price-card.is-pro { padding: 24px; }
+  .card, .rule, .price-card, .price-card.is-pro, .faq article { padding: 24px; }
   .tile { padding: 24px 22px 0; }
   .tile.text-only, .plat .tile.list { padding-bottom: 24px; }
   .get { padding: 56px 22px; }
@@ -645,6 +653,7 @@ footer .nav-links { margin: 0; flex-wrap: wrap; gap: 14px 24px; }
 /* ---------- Methods page ---------- */
 .methods-head { padding: 72px 0 24px; max-width: 780px; }
 .methods-head h1 { font-size: clamp(38px, 5.6vw, 64px); margin-bottom: 20px; }
+.methods-updated { margin-top: 20px; }
 .methods-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; list-style: none; }
 .methods-toc a {
   display: inline-block; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 999px;

@@ -1,0 +1,53 @@
+# Spline (Spline Health)
+
+> Spline is an evidence-based health and training app for iPhone, iPad and Apple Watch. It reads what your devices already record in Apple Health (HRV, resting heart rate, sleep, workouts, vitals) and turns it into one clear call each morning: push, ease off or rest. Every score shows what moved it and cites the study behind it by PubMed ID. All analysis runs on the iPhone; there is no account and no Spline server.
+
+Spline Health is not Spline, the 3D design tool at spline.design. The two are unrelated.
+
+## Key facts
+
+- Name: Spline. On the App Store it is listed as "Spline Health".
+- Status: launching soon on the App Store. There is no download link yet.
+- Platforms: iPhone and iPad on iOS 17 or later, with an Apple Watch app, widgets, Live Activities, Control Center controls, and Siri and Shortcuts.
+- Languages: English and German (Deutsch), switchable in the app.
+- Works with: anything that writes to Apple Health, including Apple Watch, Oura, Garmin, Withings, Amazfit and Polar. Spline has no hardware of its own. Garmin does not share HRV with Apple Health.
+- Price: free core app with no account and no trial timer. Spline Pro is €3.99 a month or €34.99 a year, including VAT, with a first month at €0.99 on the monthly plan. Payment is handled by Apple.
+- Free: today's call, readiness and its drivers; sleep score, sleep regularity and tonight's plan; recovery against a personal 60-day range; training load, session analysis and strength log; food log; gut health; early illness warning; vitals; breathwork; year in review; widgets and the Apple Watch app; full JSON and CSV export.
+- Spline Pro: biological age; bloodwork import with PhenoAge, ApoB and Lp(a) and the Reference Change Value test; N-of-1 experiments and habit patterns; adaptive planning; monthly review; Ask Spline.
+- Privacy: health data is read from Apple Health and analysed on the device. No account, no servers, no analytics or advertising SDK. The website sets no cookies.
+- AI: Apple's on-device model only reads the user's words and picks a topic. It never writes a number. Values come from measurements, food databases (USDA FNDDS, BLS, CIQUAL, Frida, Open Food Facts) or a scanned label.
+- Evidence: 70+ studies cited by PubMed ID across the app, each with its formula, and graded Strong, Moderate, Emerging or Clinical.
+- Regulatory: not a medical device under Regulation (EU) 2017/745. It does not diagnose, treat or prevent any disease.
+- Maker: an independent developer in Überlingen, Germany. Contact: health.spline.app@gmail.com.
+
+## Pages
+
+- [Home](https://www.spline-health.com/): what Spline does, features, the evidence it cites, privacy, pricing, recent changes and a FAQ.
+- [Methods](https://www.spline-health.com/methods.html): exactly how every metric is computed, its ranges, and the peer-reviewed evidence behind it, with PubMed links.
+- [Support](https://www.spline-health.com/support.html): troubleshooting and common questions about Apple Health permissions, exports, backups, Spline Pro, devices and language.
+- [Privacy Policy](https://www.spline-health.com/privacy.html): what the app processes on the device, and what never leaves it.
+
+## Methods
+
+- [Readiness](https://www.spline-health.com/methods.html#readiness-score): a 0-100 morning score from HRV, resting heart rate, sleep, respiration and wrist temperature against personal baselines.
+- [Today's call (HRV gate)](https://www.spline-health.com/methods.html#todays-call): proceed, ease, swap to easy or rest, gated on HRV against a personal band.
+- [Training status](https://www.spline-health.com/methods.html#training-status): CTL slope, acute:chronic load and Foster monotony.
+- [Session analysis](https://www.spline-health.com/methods.html#session-analysis): heart-rate zones, Banister TRIMP strain and one-minute heart-rate recovery.
+- [Sleep score](https://www.spline-health.com/methods.html#sleep-score): regularity 40%, duration 35%, efficiency 25%.
+- [Sleep Regularity Index](https://www.spline-health.com/methods.html#sleep-regularity): computed minute by minute, as in the UK Biobank study.
+- [Tonight's plan](https://www.spline-health.com/methods.html#tonights-plan): lights-out, wind-down and last caffeine, worked back from your own nights.
+- [Alcohol and caffeine](https://www.spline-health.com/methods.html#alcohol-caffeine): per-kilogram alcohol dose bands and caffeine within six hours of bedtime.
+- [Illness early warning](https://www.spline-health.com/methods.html#illness-warning): five overnight vitals against a baseline that leaves out the two most recent nights.
+- [Habit patterns](https://www.spline-health.com/methods.html#habit-patterns): next-morning effects with bootstrap intervals and Benjamini-Hochberg correction.
+- [Biological age](https://www.spline-health.com/methods.html#biological-age): wearable estimate with each factor's years shown.
+- [PhenoAge](https://www.spline-health.com/methods.html#phenoage): the Levine 2018 blood biological age.
+- [Reference Change Value](https://www.spline-health.com/methods.html#rcv): whether a lab result really moved.
+- [Blood pressure](https://www.spline-health.com/methods.html#blood-pressure): 7-day home averages against ESC 2024 thresholds.
+- [Food log](https://www.spline-health.com/methods.html#food-log): how a typed meal becomes calories without the AI inventing a number.
+- [Gut health](https://www.spline-health.com/methods.html#gut-health): fiber, 30 plants a week and fermented foods, with no invented microbiome score.
+- [Ask Spline](https://www.spline-health.com/methods.html#ask-spline-answers): how answers are built from the user's own data.
+
+## Optional
+
+- [Terms of Use](https://www.spline-health.com/terms.html)
+- [Datenschutzerklärung](https://www.spline-health.com/datenschutz.html): the GDPR privacy statement, in German.

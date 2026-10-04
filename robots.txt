@@ -1,0 +1,6 @@
+# Spline Health, www.spline-health.com
+# Everything on this site is public. Search engines and AI assistants are welcome to read it.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.spline-health.com/sitemap.xml

@@ -3,24 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spline &mdash; The true line through the noise</title>
-<meta name="description" content="One clear call each morning from the iPhone and watch you already own: push, ease off or rest, with its reasons attached and its science cited. Sleep, recovery, training, food, gut health and bloodwork, all on your iPhone.">
+<title>Spline Health &mdash; HRV, sleep &amp; recovery app for iPhone and Apple Watch</title>
+<meta name="description" content="One clear call each morning from the iPhone and Apple Watch you already own: push, ease off or rest. HRV, sleep and recovery, every score cited, all on-device.">
+<meta name="robots" content="max-image-preview:large">
+<link rel="canonical" href="https://www.spline-health.com/">
+<meta property="og:site_name" content="Spline Health">
 <meta property="og:title" content="Spline &mdash; The true line through the noise">
 <meta property="og:description" content="One clear call each morning, with its reasons attached and its science cited. PubMed IDs, not vibes.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.spline-health.com/">
 <meta property="og:image" content="https://www.spline-health.com/assets/og.jpg">
-<link rel="canonical" href="https://www.spline-health.com/">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta property="og:image:alt" content="Spline: The true line through the noise. One clear call each morning, with its science cited.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#070a08">
 <meta name="color-scheme" content="dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M10 48 C 22 46, 26 34, 34 26 S 48 16, 54 16' fill='none' stroke='%238FD14F' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/site.css?v=20261004">
+<link rel="stylesheet" href="assets/site.css?v=20261004b">
 <link rel="stylesheet" href="assets/device.css?v=20261004">
+<!-- Without JS nothing would ever add .in, so show the scroll-reveal content as-is. -->
+<noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+<!-- Structured data: who makes Spline, what the app is and costs, and the FAQ below.
+     Every value here is also visible on the page; keep the two in step. Once the App Store
+     listing is live, add its URL to the app as "installUrl" and to both nodes' "sameAs". -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.spline-health.com/#organization",
+      "name": "Spline",
+      "alternateName": "Spline Health",
+      "url": "https://www.spline-health.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.spline-health.com/assets/apple-touch-icon.png",
+        "width": 180,
+        "height": 180
+      },
+      "email": "health.spline.app@gmail.com",
+      "address": { "@type": "PostalAddress", "addressCountry": "DE" },
+      "disambiguatingDescription": "Maker of the Spline Health app for iPhone and Apple Watch. Not related to Spline, the 3D design tool."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.spline-health.com/#website",
+      "url": "https://www.spline-health.com/",
+      "name": "Spline Health",
+      "alternateName": "Spline",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://www.spline-health.com/#organization" }
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://www.spline-health.com/#app",
+      "name": "Spline",
+      "alternateName": "Spline Health",
+      "url": "https://www.spline-health.com/",
+      "description": "An evidence-based health and training app for iPhone, iPad and Apple Watch. It reads what your devices already record in Apple Health and turns it into one clear call each morning: push, ease off or rest. Every score shows what moved it and cites the study behind it by PubMed ID, and all analysis runs on the iPhone.",
+      "disambiguatingDescription": "A health and training app for iPhone and Apple Watch, not Spline, the 3D design tool.",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Health & Fitness",
+      "operatingSystem": "iOS 17 or later",
+      "availableOnDevice": "iPhone, iPad, Apple Watch",
+      "inLanguage": ["en", "de"],
+      "isAccessibleForFree": true,
+      "image": "https://www.spline-health.com/assets/og.jpg",
+      "screenshot": [
+        "https://www.spline-health.com/assets/screens/today.webp",
+        "https://www.spline-health.com/assets/screens/ask.webp",
+        "https://www.spline-health.com/assets/screens/home.webp"
+      ],
+      "featureList": [
+        "One training call each morning from overnight HRV: push, ease off or rest",
+        "Readiness against your own 60-day baseline, with every driver shown",
+        "Sleep score from regularity, duration and efficiency, plus a plan for tonight",
+        "Training load (fitness, fatigue and form) and analysis of every workout",
+        "Food log by description, barcode or label, matched to food databases",
+        "Gut health: fiber, 30 plants a week and fermented foods",
+        "Early illness warning from five overnight vitals",
+        "Biological age and PhenoAge from imported bloodwork (Pro)",
+        "Ask Spline: answers from your own data, with the study behind each suggestion (Pro)",
+        "Year in review, achievements and story slides",
+        "Widgets, Apple Watch app, Live Activities and Siri",
+        "Full JSON and CSV export, free"
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Spline",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        {
+          "@type": "Offer",
+          "name": "Spline Pro, monthly",
+          "price": "3.99",
+          "priceCurrency": "EUR",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "3.99",
+            "priceCurrency": "EUR",
+            "billingDuration": "P1M",
+            "valueAddedTaxIncluded": true
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Spline Pro, yearly",
+          "price": "34.99",
+          "priceCurrency": "EUR",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "34.99",
+            "priceCurrency": "EUR",
+            "billingDuration": "P1Y",
+            "valueAddedTaxIncluded": true
+          }
+        }
+      ],
+      "publisher": { "@id": "https://www.spline-health.com/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.spline-health.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Spline?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Spline is a health and training app for iPhone, iPad and Apple Watch; on the App Store it’s called Spline Health. It reads what your devices already record in Apple Health, such as HRV, resting heart rate, sleep and workouts, and turns it into one clear call each morning: push, ease off or rest. Every score shows what moved it and cites the study behind it by PubMed ID." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to buy a band or ring?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Spline has no hardware of its own. It reads Apple Health, so it works with an Apple Watch, Oura, Garmin, Withings, Amazfit or Polar device. The morning call is built on overnight HRV, so a device that records HRV gives you the most. An Apple Watch covers HRV, sleep and workouts best; Garmin doesn’t share HRV with Apple Health." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Spline free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Today’s call, sleep, recovery, training, the food log, gut health, the early illness warning, your year in review and full JSON and CSV export are free, with no account and no trial timer. Spline Pro costs €3.99 a month or €34.99 a year, with a first month at €0.99 on the monthly plan, and adds biological age, bloodwork import, experiments, adaptive planning, the monthly review and Ask Spline." }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is my health data stored?",
+          "acceptedAnswer": { "@type": "Answer", "text": "On your iPhone. Spline reads Apple Health and does its analysis on the device. There’s no account and no Spline server, so there’s nowhere else for your data to go, and the app has no analytics or advertising SDK. An optional Face ID or passcode lock keeps it to you." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the readiness score calculated?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Readiness starts at 100. HRV against your own baseline adds or subtracts the most; a resting heart rate above baseline, sleep under about 7 hours or over about 8.5, and a raised breathing rate or wrist temperature subtract. 80 and above reads Prime, 60–79 Good, 40–59 Moderate and below 40 Low. Every formula is on the Methods page." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Spline warn me before I get ill?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It can flag early signs. Spline watches five overnight vitals, resting heart rate, HRV, respiratory rate, wrist temperature and blood oxygen, each against your own range. One odd night never raises it: it takes two vitals out together, or one staying out night after night. A hard session, last night’s drinks or your cycle phase are named and discounted. It’s an early warning, never a diagnosis." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Spline different from other wearable apps?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most wearable apps ship proprietary scores, keep your data on their servers and need their own band or ring. Spline names the formula and the PubMed study behind every score, says so on the metric when the evidence is weak, keeps your data on your iPhone, works with the devices you already own, and lets you export everything as JSON or CSV for free." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Spline use AI?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Only to understand your words. Apple’s on-device model reads what you type, such as a meal or a question, and picks the topic; it never writes a number. Values come from your measurements, food databases such as USDA and Open Food Facts, or the label you scanned. Without Apple Intelligence, built-in rules do the same job." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Spline a medical device?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Spline is an informational fitness and wellbeing tool. It isn’t a medical device under Regulation (EU) 2017/745 and doesn’t diagnose, treat or prevent any disease. Anything the app grades Clinical is a conversation for your doctor." }
+        },
+        {
+          "@type": "Question",
+          "name": "When can I get Spline?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Spline is launching soon on the App Store as Spline Health, for iPhone and iPad on iOS 17 or later, with an Apple Watch app. It’s fully translated into English and German." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -41,7 +206,7 @@
 <div class="page">
 <nav id="nav">
   <div class="wrap nav-inner">
-    <a class="logo" href="index.html#top" aria-label="Spline home"><svg viewBox="0 0 64 64" aria-hidden="true">
+    <a class="logo" href="/#top" aria-label="Spline home"><svg viewBox="0 0 64 64" aria-hidden="true">
         <path d="M10 48 C 22 46, 26 34, 34 26 S 48 16, 54 16" fill="none"
               stroke="#8FD14F" stroke-width="7" stroke-linecap="round"/>
       </svg> Spline</a>
@@ -720,6 +885,94 @@
   </div>
 </section>
 
+<!-- ============================== FAQ ============================== -->
+<!-- Mirrored in the FAQPage JSON-LD in <head>: change an answer here, change it there. -->
+<section id="faq" data-anchor>
+  <div class="wrap">
+    <header class="sec-head">
+      <div class="kicker reveal">Questions</div>
+      <h2 class="reveal">Fair questions. <span class="dim">Straight answers.</span></h2>
+    </header>
+    <div class="faq">
+      <article class="reveal">
+        <h3>What is Spline?</h3>
+        <p>Spline is a health and training app for iPhone, iPad and Apple Watch; on the App Store
+           it&rsquo;s called Spline&nbsp;Health. It reads what your devices already record in Apple
+           Health, such as HRV, resting heart rate, sleep and workouts, and turns it into one clear
+           call each morning: push, ease off or rest. Every score shows what moved it and cites the
+           study behind it by PubMed ID.</p>
+      </article>
+      <article class="reveal">
+        <h3>Do I need to buy a band or ring?</h3>
+        <p>No. Spline has no hardware of its own. It reads Apple Health, so it works with an Apple
+           Watch, Oura, Garmin, Withings, Amazfit or Polar device. The morning call is built on
+           overnight HRV, so a device that records HRV gives you the most. An Apple Watch covers
+           HRV, sleep and workouts best; Garmin doesn&rsquo;t share HRV with Apple Health.</p>
+      </article>
+      <article class="reveal">
+        <h3>Is Spline free?</h3>
+        <p>Yes. Today&rsquo;s call, sleep, recovery, training, the food log, gut health, the early
+           illness warning, your year in review and full JSON and CSV export are free, with no
+           account and no trial timer. <a href="#pricing">Spline&nbsp;Pro</a> costs &euro;3.99 a
+           month or &euro;34.99 a year, with a first month at &euro;0.99 on the monthly plan, and
+           adds biological age, bloodwork import, experiments, adaptive planning, the monthly
+           review and Ask Spline.</p>
+      </article>
+      <article class="reveal">
+        <h3>Where is my health data stored?</h3>
+        <p>On your iPhone. Spline reads Apple Health and does its analysis on the device.
+           There&rsquo;s no account and no Spline server, so there&rsquo;s nowhere else for your
+           data to go, and the app has no analytics or advertising SDK. An optional Face&nbsp;ID or
+           passcode lock keeps it to you.</p>
+      </article>
+      <article class="reveal">
+        <h3>How is the readiness score calculated?</h3>
+        <p>Readiness starts at 100. HRV against your own baseline adds or subtracts the most; a
+           resting heart rate above baseline, sleep under about 7&nbsp;hours or over about 8.5, and
+           a raised breathing rate or wrist temperature subtract. 80 and above reads Prime,
+           60&ndash;79 Good, 40&ndash;59 Moderate and below 40 Low. Every formula is on the
+           <a href="methods.html#readiness-score">Methods page</a>.</p>
+      </article>
+      <article class="reveal">
+        <h3>Can Spline warn me before I get ill?</h3>
+        <p>It can flag early signs. Spline watches five overnight vitals, resting heart rate, HRV,
+           respiratory rate, wrist temperature and blood oxygen, each against your own range. One
+           odd night never raises it: it takes two vitals out together, or one staying out night
+           after night. A hard session, last night&rsquo;s drinks or your cycle phase are named and
+           discounted. It&rsquo;s an <a href="methods.html#illness-warning">early warning</a>,
+           never a diagnosis.</p>
+      </article>
+      <article class="reveal">
+        <h3>How is Spline different from other wearable apps?</h3>
+        <p>Most wearable apps ship proprietary scores, keep your data on their servers and need
+           their own band or ring. Spline names the formula and the PubMed study behind every
+           score, says so on the metric when the evidence is weak, keeps your data on your iPhone,
+           works with the devices you already own, and lets you export everything as JSON or CSV
+           for free.</p>
+      </article>
+      <article class="reveal">
+        <h3>Does Spline use AI?</h3>
+        <p>Only to understand your words. Apple&rsquo;s on-device model reads what you type, such
+           as a meal or a question, and picks the topic; it never writes a number. Values come from
+           your measurements, food databases such as USDA and Open Food Facts, or the label you
+           scanned. Without Apple Intelligence, built-in rules do the same job.</p>
+      </article>
+      <article class="reveal">
+        <h3>Is Spline a medical device?</h3>
+        <p>No. Spline is an informational fitness and wellbeing tool. It isn&rsquo;t a medical
+           device under Regulation (EU) 2017/745 and doesn&rsquo;t diagnose, treat or prevent any
+           disease. Anything the app grades Clinical is a conversation for your doctor.</p>
+      </article>
+      <article class="reveal">
+        <h3>When can I get Spline?</h3>
+        <p>Spline is launching soon on the App Store as Spline&nbsp;Health, for iPhone and iPad on
+           iOS&nbsp;17 or later, with an Apple Watch app. It&rsquo;s fully translated into English
+           and German.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ============================== Get ============================== -->
 <section id="get" data-anchor>
   <div class="wrap">
@@ -748,15 +1001,15 @@
 <footer>
   <div class="wrap">
     <div class="foot-top">
-      <a class="logo" href="index.html#top"><svg viewBox="0 0 64 64" aria-hidden="true">
+      <a class="logo" href="/#top"><svg viewBox="0 0 64 64" aria-hidden="true">
         <path d="M10 48 C 22 46, 26 34, 34 26 S 48 16, 54 16" fill="none"
               stroke="#8FD14F" stroke-width="7" stroke-linecap="round"/>
       </svg> Spline</a>
       <div class="nav-links">
-        <a href="index.html#features">Features</a>
-        <a href="index.html#ask">Ask Spline</a>
-        <a href="index.html#evidence">Evidence</a>
-        <a href="index.html#pricing">Pricing</a>
+        <a href="/#features">Features</a>
+        <a href="/#ask">Ask Spline</a>
+        <a href="/#evidence">Evidence</a>
+        <a href="/#pricing">Pricing</a>
         <a href="methods.html">Methods</a>
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy</a>
