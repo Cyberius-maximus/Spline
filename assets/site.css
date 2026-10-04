@@ -253,10 +253,8 @@ h3 { font-size: 20px; font-weight: 650; letter-spacing: -0.018em; line-height: 1
   background: rgba(255, 255, 255, 0.012);
 }
 .works-inner { display: flex; align-items: center; gap: 18px 36px; flex-wrap: wrap; justify-content: space-between; }
-.works-label { font-size: 14px; color: var(--text-dim); max-width: 330px; line-height: 1.5; }
 .works-list { display: flex; flex-wrap: wrap; gap: 10px 30px; list-style: none; }
 .works-list li { font-size: 18px; font-weight: 650; letter-spacing: -0.01em; color: var(--text); opacity: 0.86; }
-.works-list li small { font-size: 12px; font-weight: 600; color: var(--accent-text); margin-left: 6px; letter-spacing: 0.02em; }
 .works-note { width: 100%; font-size: 12.5px; color: var(--text-faint); }
 
 /* ---------- Today, explained (the glass box) ---------- */
