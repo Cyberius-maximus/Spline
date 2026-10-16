@@ -552,6 +552,8 @@ footer { padding: 64px 0 56px; border-top: 1px solid var(--border-soft); backgro
 footer .nav-links { margin: 0; flex-wrap: wrap; gap: 14px 24px; }
 .disclaimer { margin-top: 28px; font-size: 13px; color: var(--text-faint); max-width: 800px; line-height: 1.65; }
 .copyright { margin-top: 14px; color: var(--text-faint); font-size: 13px; }
+.sibling { margin-top: 14px; color: var(--text-dim); font-size: 13.5px; }
+.sibling a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }

@@ -1,0 +1,252 @@
+/* ============================================================================
+   Tilde — site styles.
+   Tilde shares a domain with Spline, never a look: these tokens are ported from the
+   app's Theme.swift (warm paper, ink and clay; espresso and cream at night), and
+   nothing here loads from Spline's site.css. Light-first; dark follows the system,
+   as the app does.
+   ========================================================================== */
+
+:root {
+  --bg1: #f6f0e8;
+  --bg2: #f1e8dd;
+  --surface: #fffcf7;
+  --surface-2: rgba(42, 31, 27, 0.05);
+  --border: rgba(42, 31, 27, 0.14);
+  --border-soft: rgba(42, 31, 27, 0.07);
+  --text: #2a1f1b;
+  --text-dim: #6b5b53;
+  --text-faint: #73625a;
+  --accent: #a8462e;
+  --on-accent: #fff6ec;
+  --green: #44704e;
+  --yellow: #845e0e;
+  --red: #9e3b2a;
+  --menstrual: #a8462e;
+  --follicular: #44704e;
+  --fertile: #845e0e;
+  --luteal: #5d579a;
+  --premenstrual: #9a5470;
+  --lift: 0 1px 2px rgba(42, 31, 27, 0.04), 0 10px 30px rgba(42, 31, 27, 0.07);
+  --nav-bg: rgba(246, 240, 232, 0.82);
+  --serif: ui-serif, "New York", "Iowan Old Style", Charter, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --radius: 22px;
+  --wrap: 1080px;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg1: #1a1512;
+    --bg2: #120e0c;
+    --surface: #221b18;
+    --surface-2: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.14);
+    --border-soft: rgba(255, 255, 255, 0.07);
+    --text: #f3ebe3;
+    --text-dim: #bdaea5;
+    --text-faint: #9c8d84;
+    --accent: #e58a6c;
+    --on-accent: #2a140c;
+    --green: #8dbe98;
+    --yellow: #e3b45a;
+    --red: #e07a62;
+    --menstrual: #e58a6c;
+    --follicular: #8dbe98;
+    --fertile: #e3b45a;
+    --luteal: #a9a3e0;
+    --premenstrual: #d892ae;
+    --lift: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.35);
+    --nav-bg: rgba(26, 21, 18, 0.82);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 76px; }
+body {
+  font-family: var(--sans);
+  background: var(--bg1);
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: color-mix(in srgb, var(--accent) 26%, transparent); }
+a { color: inherit; }
+img, svg { display: block; max-width: 100%; }
+img { height: auto; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+.skip {
+  position: absolute; left: 16px; top: -60px; z-index: 100;
+  background: var(--text); color: var(--bg1); padding: 10px 16px; border-radius: 999px;
+}
+.skip:focus { top: 12px; }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; }
+h1 { font-size: clamp(44px, 7vw, 76px); font-weight: 500; letter-spacing: -0.02em; }
+h2 { font-size: clamp(30px, 4.2vw, 44px); font-weight: 500; }
+h3 { font-size: 21px; }
+.lede { font-size: clamp(18px, 2vw, 21px); color: var(--text-dim); max-width: 620px; }
+.section { padding: 88px 0 0; }
+.section-head { max-width: 680px; margin-bottom: 36px; }
+.section-head p { color: var(--text-dim); margin-top: 12px; }
+
+/* ---------- Nav ---------- */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(1.3) blur(16px); -webkit-backdrop-filter: saturate(1.3) blur(16px);
+  border-bottom: 1px solid var(--border-soft);
+}
+.nav-inner { display: flex; align-items: center; gap: 28px; height: 64px; }
+.logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+.logo svg { width: 30px; height: 30px; flex: none; }
+.logo svg path { stroke: var(--accent); }
+.logo span { font-family: var(--serif); font-weight: 700; font-size: 24px; letter-spacing: -0.01em; line-height: 1; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { color: var(--text-dim); text-decoration: none; font-size: 15px; font-weight: 500; }
+.nav-links a:hover { color: var(--text); }
+.nav-inner > .pill { margin-left: auto; }
+
+/* Selected states in the app are ink-filled pills; the site's one call to action is too. */
+.pill {
+  display: inline-flex; align-items: center; min-height: 38px; padding: 8px 18px;
+  border-radius: 999px; background: var(--text); color: var(--bg1);
+  font-size: 15px; font-weight: 600; white-space: nowrap; text-decoration: none;
+}
+.pill.large { min-height: 50px; padding: 12px 24px; font-size: 17px; }
+.text-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+.text-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Hero, with a wash of the current phase colour at the top ---------- */
+.hero { position: relative; padding: 72px 0 0; }
+.hero::before {
+  content: ""; position: absolute; inset: -64px 0 auto; height: 520px; z-index: -1;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--luteal) 16%, transparent), transparent);
+}
+.hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+.hero .icon { width: 84px; height: 84px; border-radius: 19px; box-shadow: var(--lift); margin-bottom: 28px; }
+.hero h1 { margin-bottom: 20px; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-ctas { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 30px; }
+.maker { margin-top: 22px; font-size: 14.5px; color: var(--text-faint); }
+.maker a { color: var(--text-dim); }
+
+/* ---------- Sheets: borderless paper with a soft lift ---------- */
+.sheet { background: var(--surface); border-radius: var(--radius); box-shadow: var(--lift); padding: 26px; }
+
+/* ---------- The tide ---------- */
+.tide-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 18px; }
+.tide-day { font-family: var(--serif); font-size: 34px; line-height: 1; white-space: nowrap; }
+.tide-phase { color: var(--luteal); font-weight: 600; font-size: 15px; margin-top: 6px; }
+.tide-next { text-align: right; }
+.tide-next b { display: block; font-family: var(--serif); font-size: 21px; font-weight: 600; }
+.tide-next span { font-size: 14px; color: var(--text-dim); }
+.tide svg { width: 100%; height: auto; overflow: visible; }
+.tide .w { opacity: 0.3; }
+.tide .w.later { opacity: 0.13; }
+.w.men { fill: var(--menstrual); }
+.w.fol { fill: var(--follicular); }
+.w.fer { fill: var(--fertile); }
+.w.lut { fill: var(--luteal); }
+.w.pre { fill: var(--premenstrual); }
+.tide .ink { stroke: var(--text); stroke-width: 3; fill: none; stroke-linecap: round; }
+.tide .ahead { stroke: var(--text-faint); stroke-width: 2; fill: none; stroke-linecap: round; stroke-dasharray: 2 7; }
+.tide .now-line { stroke: var(--text); stroke-opacity: 0.35; stroke-width: 1; }
+.tide .now { fill: var(--bg1); stroke: var(--luteal); stroke-width: 4; }
+.tide-labels { display: flex; margin-top: 8px; font-size: 12.5px; color: var(--text-faint); font-weight: 500; }
+.tide-labels span { text-align: center; white-space: nowrap; }
+.tide-labels .is-now { color: var(--luteal); font-weight: 700; }
+.tide-note { margin-top: 18px; font-size: 14px; color: var(--text-dim); border-top: 1px solid var(--border-soft); padding-top: 14px; }
+
+/* ---------- The name ---------- */
+.name-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.name-grid .glyph { font-family: var(--serif); font-size: 56px; line-height: 0.8; color: var(--accent); margin-bottom: 14px; }
+.name-grid p { color: var(--text-dim); margin-top: 8px; }
+
+/* ---------- Features ---------- */
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.features .sheet p { color: var(--text-dim); font-size: 15.5px; margin-top: 8px; }
+.features h3 { font-size: 20px; }
+
+/* ---------- Evidence: the three-dot meter ---------- */
+.meter { display: inline-flex; gap: 4px; align-items: center; }
+.meter i { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid currentColor; }
+.meter i.on { background: currentColor; }
+.g-strong { color: var(--green); }
+.g-moderate { color: var(--luteal); }
+.g-limited { color: var(--yellow); }
+.g-myth { color: var(--red); }
+.grade { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; }
+.myth-x { font-size: 14px; font-weight: 800; line-height: 1; }
+.claims { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.claims h3 { margin-top: 12px; font-size: 20px; }
+.claims p { color: var(--text-dim); font-size: 15.5px; margin-top: 8px; }
+.claims cite { display: block; margin-top: 12px; font-style: normal; font-size: 13.5px; color: var(--text-faint); }
+.claims cite a { color: var(--text-dim); }
+.legend { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 22px; font-size: 14px; color: var(--text-dim); }
+
+/* ---------- Privacy ---------- */
+.privacy { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.checks { list-style: none; display: grid; gap: 12px; }
+.checks li { position: relative; padding-left: 30px; color: var(--text-dim); }
+.checks li b { color: var(--text); font-weight: 600; }
+.checks li::before {
+  content: "~"; position: absolute; left: 2px; top: -3px;
+  font-family: var(--serif); font-size: 24px; color: var(--accent);
+}
+
+/* ---------- FAQ ---------- */
+.faq { max-width: 760px; }
+.faq details { border-bottom: 1px solid var(--border); }
+.faq summary {
+  cursor: pointer; list-style: none; padding: 18px 32px 18px 0; position: relative;
+  font-family: var(--serif); font-size: 20px; font-weight: 600;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 16px; font-family: var(--sans); color: var(--text-faint); font-size: 22px; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { color: var(--text-dim); padding: 0 0 20px; max-width: 680px; }
+.faq a, .contact a { color: var(--accent); }
+.contact { margin-top: 30px; color: var(--text-dim); }
+
+/* ---------- Prose pages (privacy policy) ---------- */
+.prose { max-width: 740px; padding: 64px 0 40px; }
+.prose h1 { font-size: clamp(38px, 5.5vw, 54px); margin-bottom: 10px; }
+.prose h2 { font-size: 25px; margin: 40px 0 10px; }
+.prose p, .prose li { color: var(--text-dim); }
+.prose p + p { margin-top: 12px; }
+.prose ul { padding-left: 22px; display: grid; gap: 8px; margin-top: 10px; }
+.prose strong { color: var(--text); font-weight: 600; }
+.prose a { color: var(--accent); text-underline-offset: 3px; }
+.prose .updated { color: var(--text-faint); font-size: 14px; }
+
+/* ---------- Footer ---------- */
+footer { margin-top: 96px; padding: 48px 0 56px; background: var(--bg2); border-top: 1px solid var(--border-soft); }
+.foot-top { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+footer .nav-links { flex-wrap: wrap; gap: 12px 22px; }
+.disclaimer { margin-top: 26px; font-size: 13.5px; color: var(--text-faint); max-width: 760px; }
+.copyright { margin-top: 12px; font-size: 13.5px; color: var(--text-faint); }
+.copyright a { color: var(--text-dim); }
+
+@media (max-width: 900px) {
+  .hero-grid, .privacy { grid-template-columns: 1fr; gap: 40px; }
+  .features { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  nav .nav-links { display: none; }
+  .wrap { padding: 0 16px; }
+  .hero { padding-top: 44px; }
+  .section { padding-top: 68px; }
+  .name-grid, .features, .claims { grid-template-columns: 1fr; }
+  .sheet { padding: 22px 20px; }
+  .tide-top { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .tide-next { text-align: left; }
+  .tide-day { font-size: 30px; }
+  .tide-next b { font-size: 18px; }
+  .tide-labels { font-size: 11px; }
+  footer .nav-links { gap: 10px 18px; }
+}
