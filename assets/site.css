@@ -104,6 +104,43 @@ nav.scrolled { border-bottom-color: var(--border-soft); background: rgba(7, 10, 
 .nav-links a { color: var(--text-dim); font-size: 14.5px; font-weight: 500; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--text); }
 
+/* ---------- The app switch: Spline and Tilde share this domain ----------
+   Each label is set in its own app's type. /shared/app-switch.js adds the sliding thumb
+   and the tide; without it the current app's pill is simply highlighted. */
+.app-switch {
+  position: relative; display: inline-flex; align-items: center; gap: 2px; flex: none;
+  padding: 3px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-soft);
+}
+.app-switch a {
+  position: relative; z-index: 1; display: flex; align-items: center; gap: 8px;
+  padding: 4px 13px 4px 4px; border-radius: 999px; color: var(--text-dim); transition: color 0.3s ease;
+}
+.app-switch img { width: 26px; height: 26px; border-radius: 7px; flex: none; transition: transform 0.35s var(--ease); }
+.app-switch a > span { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; line-height: 1; }
+.app-switch a[data-app="tilde"] > span {
+  font-family: ui-serif, "New York", "Iowan Old Style", Charter, Georgia, serif;
+  font-size: 19px; font-weight: 600; letter-spacing: 0;
+}
+.app-switch a[aria-current] { color: var(--text); background: rgba(143, 209, 79, 0.12); }
+.app-switch.has-thumb a[aria-current] { background: none; }
+.app-switch-thumb {
+  position: absolute; top: 3px; bottom: 3px; left: 0; border-radius: 999px;
+  background: rgba(143, 209, 79, 0.12); box-shadow: inset 0 0 0 1px rgba(143, 209, 79, 0.32);
+  transition: transform 0.45s var(--ease), width 0.45s var(--ease);
+}
+.app-switch a:not([aria-current]):hover, .app-switch a.is-target { color: var(--text); }
+.app-switch.is-switching a[aria-current] { color: var(--text-dim); }
+.app-switch a:not([aria-current]):hover img { transform: rotate(-8deg) scale(1.08); }
+/* One wiggle of the other app's icon after load, so it reads as something to press. */
+.app-switch a:not([aria-current]) img { animation: switch-nudge 1s var(--ease) 1.6s; }
+@keyframes switch-nudge {
+  20% { transform: rotate(-12deg) scale(1.14); }
+  40% { transform: rotate(9deg) scale(1.14); }
+  60% { transform: rotate(-5deg) scale(1.06); }
+  80% { transform: rotate(2deg); }
+}
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 9px;
@@ -606,6 +643,7 @@ footer .nav-links { margin: 0; flex-wrap: wrap; gap: 14px 24px; }
 }
 @media (max-width: 600px) {
   .wrap { padding: 0 20px; }
+  .nav-inner { gap: 12px; }
   .pmids { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .privacy { grid-template-columns: 1fr; }
   .card, .rule, .price-card, .price-card.is-pro, .faq article { padding: 24px; }
@@ -622,6 +660,18 @@ footer .nav-links { margin: 0; flex-wrap: wrap; gap: 14px 24px; }
   th, td { padding: 13px 12px; font-size: 13.5px; }
   th { font-size: 11px; letter-spacing: 0.08em; }
   .privacy { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .app-switch a { gap: 6px; padding: 3px 10px 3px 3px; }
+  .app-switch img { width: 24px; height: 24px; }
+  .app-switch a > span { font-size: 15px; }
+  .app-switch a[data-app="tilde"] > span { font-size: 17px; }
+  .nav-inner > .btn { padding: 8px 13px; font-size: 13.5px; }
+}
+@media (max-width: 370px) {
+  .app-switch a:not([aria-current]) { padding-right: 4px; }
+  .app-switch a:not([aria-current]) > span { display: none; }
 }
 
 /* ---------- Accessibility ---------- */
