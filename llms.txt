@@ -52,11 +52,11 @@ Spline Health is not Spline, the 3D design tool at spline.design. The two are un
 Tilde is a separate app from the maker of Spline: a menstrual-cycle companion for iPhone, positioned as "the honest wave". It has its own pages under /tilde/ on this site. It is not Tilde SIA (language technology) or Tilde Inc. (developer tools).
 
 - Status: coming soon to the App Store. There is no download link yet.
-- Platform: iPhone on iOS 17 or later. Language: English.
+- Platform: iPhone on iOS 17 or later, with Home Screen and Lock Screen widgets and an optional Apple Watch app (watchOS 10 or later) for logging and complications. Language: English.
 - Predictions: the next period and fertile window are shown as ranges with a confidence label, never a single date; the ranges widen for irregular cycles.
 - Evidence: every piece of guidance carries a grade (strong, moderate, limited or not supported) and cites its studies, with a section of myths Tilde does not sell, such as phase-synced workouts and seed cycling.
 - Modes: natural cycles, trying to conceive, perimenopause (STRAW+10 bleeding criteria) and hormonal contraception (no invented phases).
-- Privacy: no account, no servers, no network connections, no analytics or ads. Data stays on the iPhone; it leaves only through Apple Health, an export or a report the user shares.
+- Privacy: no account, no servers, no internet connections of its own, no analytics or ads. Data stays on the iPhone (a short summary also on its widgets and the paired Apple Watch); it leaves only through Apple Health, an export or a report the user shares.
 - Not contraception and not a medical device. It never marks a day as safe.
 
 - [Tilde](https://www.spline-health.com/tilde/): what Tilde does, the evidence grades with examples, privacy and a FAQ.
